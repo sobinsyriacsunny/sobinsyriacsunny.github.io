@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sobin Sunny MIET · Mechatronics and Robotics Engineer</title>
-<meta name="description" content="Portfolio of Sobin Sunny MIET, mechatronics and robotics engineer designing, testing and certifying laboratory robots in London, UK.">
+<title>Sobin Sunny MIET · Mechatronics, Robotics and Automation Engineer</title>
+<meta name="description" content="Portfolio of Sobin Sunny MIET, mechatronics, robotics and automation engineer in London, UK. Industrial automation, robotics, embedded systems and machine safety.">
 <meta name="theme-color" content="#13120f">
-<meta property="og:title" content="Sobin Sunny MIET · Mechatronics and Robotics Engineer">
-<meta property="og:description" content="I design, test and certify laboratory robots used in public health, biopharma and research labs.">
+<meta property="og:title" content="Sobin Sunny MIET · Mechatronics, Robotics and Automation Engineer">
+<meta property="og:description" content="I build robots and automated systems for manufacturing plants, laboratories and research.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2313120f'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='monospace' font-size='14' font-weight='700' fill='%23e8743b'%3ESS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,14 +207,14 @@ section{padding:120px 0 40px}
 .tile p{color:var(--muted);font-size:15.5px}
 .tile .big{font-size:clamp(72px,9vw,128px);font-weight:700;letter-spacing:-.06em;line-height:.85;color:var(--ink)}
 .tile .big .u{color:var(--accent)}
-.t-a{grid-column:span 3;grid-row:span 2;justify-content:space-between;background:linear-gradient(155deg,#2a211a,var(--panel) 55%)}
+.t-a{grid-column:span 3;grid-row:auto;justify-content:space-between;background:linear-gradient(155deg,#2a211a,var(--panel) 55%)}
 .t-a::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:1px dashed rgba(232,116,59,.35);animation:spin 40s linear infinite}
 .t-a::before{content:"";position:absolute;right:-20px;top:-20px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(232,116,59,.25)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.t-b,.t-c{grid-column:span 3}
-.t-d,.t-e,.t-f{grid-column:span 2}
-.t-e .big{font-size:64px}
-@media (max-width:900px){.t-a,.t-b,.t-c{grid-column:span 6;grid-row:auto}.t-d,.t-e,.t-f{grid-column:span 3}.t-f{grid-column:span 6}}
+.t-b,.t-c,.t-d{grid-column:span 3}.t-a .big{font-size:clamp(64px,7vw,104px)}
+.t-e{grid-column:span 6}.t-e .vols{grid-template-columns:repeat(4,1fr)}@media (max-width:1100px){.t-e .vols{grid-template-columns:1fr 1fr}}@media (max-width:640px){.t-e .vols{grid-template-columns:1fr}}
+
+@media (max-width:900px){.t-a,.t-b,.t-c,.t-d,.t-e{grid-column:span 6;grid-row:auto}}
 @media (max-width:560px){.bento>*{grid-column:span 6!important}}
 
 /* ---------- career timeline ---------- */
@@ -290,6 +290,171 @@ footer a{text-decoration:none;color:var(--muted)}
 footer a:hover{color:var(--accent)}
 
 
+
+/* ---------- drawing sheets (hero) ---------- */
+.rigcol{display:grid;gap:12px}
+.rig svg.sheet{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--ease)}
+.rig svg.sheet.on{opacity:1}
+.rig .cap{display:none}.rig .cap.on{display:inline}
+.rig .ftr .fgrp{display:none;width:100%;justify-content:space-between;gap:12px}
+.rig .ftr .fgrp.on{display:flex}
+.sheet-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.sheet-tabs button{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:8px;justify-content:center;height:38px;padding:0 10px;border-radius:10px;border:1px solid var(--rule-2);background:var(--panel);color:var(--muted);font:500 12px var(--mono);cursor:pointer;transition:color .2s,border-color .2s,background .2s;white-space:nowrap}
+.sheet-tabs button b{color:var(--faint);font-weight:500}
+.sheet-tabs button:hover{color:var(--ink);border-color:var(--faint)}
+.sheet-tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--accent);background:var(--accent-soft)}
+.sheet-tabs button[aria-selected="true"] b{color:var(--accent)}
+.sheet-tabs .bar{position:relative;display:block;height:2px;margin-top:0}
+@media (max-width:480px){.sheet-tabs button{font-size:11px;padding:0 6px}}
+.panels{animation:panels 2.4s linear infinite}
+@keyframes panels{to{transform:translateX(80px)}}
+.platen{animation:platen 2.4s var(--ease) infinite}
+@keyframes platen{0%,20%{transform:translateY(0)}45%,60%{transform:translateY(28px)}85%,100%{transform:translateY(0)}}
+.flow{stroke-dasharray:6 8;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-14}}
+.waves{animation:waves 1.6s ease-in-out infinite}
+@keyframes waves{0%,100%{opacity:.25}50%{opacity:1}}
+.trend{stroke-dasharray:1;stroke-dashoffset:1;animation:trend 9s linear infinite}
+@keyframes trend{0%{stroke-dashoffset:1}78%,100%{stroke-dashoffset:0}}
+.alert{opacity:0;animation:alert 9s linear infinite}
+@keyframes alert{0%,57%{opacity:0}59%,100%{opacity:1}}
+.alert-ring{transform-box:fill-box;transform-origin:center;animation:ring 1.2s ease-out infinite}
+@keyframes ring{from{transform:scale(.6);opacity:1}to{transform:scale(2.2);opacity:0}}
+.st-n{animation:stn 9s linear infinite}.st-a{opacity:0;animation:alert 9s linear infinite}
+@keyframes stn{0%,57%{opacity:1}59%,100%{opacity:0}}
+.goal{transform-box:fill-box;transform-origin:center;animation:ring 1.8s ease-out infinite}
+
+/* ---------- recognition ---------- */
+.recog{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.spot{position:relative;grid-column:span 1;background:linear-gradient(160deg,#28201a,var(--panel) 60%);border:1px solid rgba(232,116,59,.25);border-radius:18px;padding:26px;display:grid;gap:10px;align-content:start;overflow:hidden}
+.spot .label{color:var(--accent)}
+.spot h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
+.spot p{color:var(--muted);font-size:15.5px}
+.awards{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);border-radius:18px;overflow:hidden;background:var(--panel)}
+.award{padding:22px 24px;display:grid;gap:6px;align-content:start;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .3s}
+.award:nth-child(3n){border-right:0}
+.award:nth-last-child(-n+3){border-bottom:0}
+.award:hover{background:var(--panel-2)}
+.award h4{margin:0;font-size:18px;font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.award .by{font:500 11.5px/1.4 var(--mono);color:var(--accent)}
+.award p{color:var(--muted);font-size:14.5px;line-height:1.5}
+@media (max-width:900px){.recog{grid-template-columns:1fr}.awards{grid-template-columns:1fr 1fr}.award:nth-child(3n){border-right:1px solid var(--rule)}.award:nth-child(2n){border-right:0}.award:nth-last-child(-n+3){border-bottom:1px solid var(--rule)}.award:nth-last-child(-n+2){border-bottom:0}}
+@media (max-width:560px){.awards{grid-template-columns:1fr}.award{border-right:0!important;border-bottom:1px solid var(--rule)!important}.award:last-child{border-bottom:0!important}}
+
+/* ---------- build log ---------- */
+.builds{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.build{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;overflow:hidden;transition:transform .35s var(--ease),border-color .3s}
+.build:hover{transform:translateY(-4px);border-color:var(--rule-2)}
+.build .yr{font:500 11.5px var(--mono);letter-spacing:.1em;color:var(--faint)}
+.build h3{font-size:18.5px;letter-spacing:-.015em;line-height:1.2}
+.build p{color:var(--muted);font-size:14.5px;line-height:1.5}
+.build .tags{margin-top:auto;padding-top:6px}
+.build .tags li{font-size:11px;padding:5px 8px}
+.build.wide{grid-column:span 2;background:linear-gradient(160deg,#22201b,var(--panel) 70%)}
+.build.wide h3{font-size:22px}
+.build svg.icon{width:34px;height:34px;color:var(--accent)}
+@media (max-width:1000px){.builds{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.builds{grid-template-columns:1fr}.build.wide{grid-column:auto}}
+
+/* ---------- skills, expanded ---------- */
+.skillx{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sk{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.sk .head{display:flex;align-items:center;gap:12px}
+.sk .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);flex:none}
+.sk .ico svg{width:20px;height:20px}
+.sk h3{font-size:19px;letter-spacing:-.015em}
+.sk p{color:var(--muted);font-size:14.5px;line-height:1.5}
+.sk .tags{margin-top:4px}
+@media (max-width:1000px){.skillx{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.skillx{grid-template-columns:1fr}}
+.sk:hover .glow{opacity:1}
+
+/* ---------- certifications ---------- */
+.certs{margin-top:14px;display:grid;grid-template-columns:.9fr 2.1fr;gap:14px}
+.miet{position:relative;border-radius:18px;padding:28px;background:linear-gradient(150deg,rgba(232,116,59,.2),rgba(232,116,59,.04));border:1px solid rgba(232,116,59,.32);display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.miet .big{font:700 64px/1 var(--display);letter-spacing:-.05em}
+.miet .big .u{color:var(--accent)}
+.miet p{color:#d6d0c6;font-size:15.5px}
+.miet .label{color:var(--accent)}
+.certlist{border:1px solid var(--rule);border-radius:18px;background:var(--panel);padding:8px 24px}
+.certlist ol{list-style:none;margin:0;padding:0}
+.certlist li{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px dashed var(--rule-2)}
+.certlist li:last-child{border-bottom:0}
+.certlist .y{font:500 12px var(--mono);color:var(--faint);font-variant-numeric:tabular-nums}
+.certlist .n{font-size:15.5px;line-height:1.35}
+.certlist .i{font:500 11.5px var(--mono);color:var(--accent);text-align:right}
+@media (max-width:900px){.certs{grid-template-columns:1fr}}
+@media (max-width:560px){.certlist li{grid-template-columns:48px 1fr}.certlist .i{grid-column:2;text-align:left}}
+
+/* ---------- community tile ---------- */
+.vols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.vol{border:1px solid var(--rule);border-radius:12px;padding:14px 16px;background:rgba(19,18,15,.35);display:grid;gap:4px;align-content:start}
+.vol b{font-weight:600;font-size:15.5px;letter-spacing:-.01em}
+.vol span{font:500 11px var(--mono);color:var(--accent);letter-spacing:.04em}
+.vol p{font-size:14px;line-height:1.5;color:var(--muted)}
+@media (max-width:640px){.vols{grid-template-columns:1fr}}
+
+
+/* ---------- in the media ---------- */
+.media{padding:56px 0 0}
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mcard{position:relative;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:26px 28px;border-radius:20px;text-decoration:none;color:var(--ink);border:1px solid rgba(232,116,59,.35);background:linear-gradient(140deg,rgba(232,116,59,.16),rgba(30,28,24,.9) 55%);overflow:hidden;transition:transform .35s var(--ease),border-color .3s,box-shadow .3s}
+.mcard:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 30px 60px -30px rgba(232,116,59,.45)}
+.mcard.pod{background:linear-gradient(140deg,rgba(156,197,154,.16),rgba(30,28,24,.9) 55%);border-color:rgba(156,197,154,.35)}
+.mcard.pod:hover{border-color:var(--ok);box-shadow:0 30px 60px -30px rgba(156,197,154,.4)}
+.mcard .disc{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);position:relative}
+.mcard.pod .disc{background:var(--ok)}
+.mcard .disc::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid currentColor;opacity:.0;animation:halo 2.2s ease-out infinite;color:var(--accent)}
+.mcard.pod .disc::after{color:var(--ok)}
+@keyframes halo{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+.mcard .disc svg{width:34px;height:34px}
+.mcard .kick{font:500 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.mcard.pod .kick{color:var(--ok)}
+.mcard h3{margin-top:8px;font-size:clamp(22px,2.2vw,28px);letter-spacing:-.025em;line-height:1.1}
+.mcard p{margin-top:8px;color:var(--muted);font-size:15px;max-width:52ch}
+.mcard .go{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);color:var(--ink)}
+.mcard .go svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.mcard:hover .go svg{transform:translate(3px,-3px)}
+.eq{display:flex;gap:3px;align-items:flex-end;height:30px}
+.eq i{display:block;width:4px;border-radius:2px;background:var(--accent-ink);animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(1){height:40%;animation-delay:-.2s}.eq i:nth-child(2){height:90%;animation-delay:-.5s}.eq i:nth-child(3){height:60%;animation-delay:-.1s}.eq i:nth-child(4){height:80%;animation-delay:-.7s}.eq i:nth-child(5){height:50%;animation-delay:-.35s}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.eq i{transform-origin:bottom}
+@media (max-width:860px){.media-grid{grid-template-columns:1fr}}
+@media (max-width:480px){.mcard{grid-template-columns:1fr}.mcard .disc{width:64px;height:64px}}
+.btn.pod{border-color:rgba(156,197,154,.45);color:var(--ok)}
+.btn.pod .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 2.4s infinite}
+
+/* ---------- drawings inside cards ---------- */
+.case .rig{margin-top:8px !important;aspect-ratio:1/1}
+.rig.wide{aspect-ratio:400/260}
+.degree.full{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}
+.degree.full .txt{display:flex;flex-direction:column;gap:18px}
+.feat2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat{border:1px solid var(--rule);border-radius:16px;overflow:hidden;background:rgba(19,18,15,.35);display:flex;flex-direction:column}
+.feat .rig{border:0;border-radius:0;border-bottom:1px solid var(--rule);box-shadow:none}
+.feat .rig .hdr{top:10px}.feat .rig .ftr{bottom:10px}
+.feat .fx{padding:20px 22px 22px;display:grid;gap:8px}
+.feat .fx .label{color:var(--accent)}
+.feat .fx h4{margin:0;font-size:21px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.feat .fx p{color:var(--muted);font-size:15px}
+@media (max-width:980px){.degree.full{grid-template-columns:1fr}.feat2{grid-template-columns:1fr}}
+.bubble{animation:bubble 7s ease-in-out infinite}
+@keyframes bubble{0%,35%{opacity:0;transform:translateY(6px)}42%,70%{opacity:1;transform:none}78%,100%{opacity:0}}
+.rays{transform-origin:70px 62px;animation:spin 14s linear infinite}
+.beam line{stroke-dasharray:4 8;animation:flow 1s linear infinite}
+.wheel{animation:spin 1.2s linear infinite}
+.road{stroke-dasharray:18 14;animation:road .8s linear infinite}
+@keyframes road{to{stroke-dashoffset:32}}
+.charge{transform-origin:303px 51px;animation:charge 4s ease-in-out infinite}
+@keyframes charge{0%{transform:scaleX(.12)}80%,100%{transform:scaleX(1)}}
+.edu{grid-template-columns:1fr}
+.research{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.research .build.wide{grid-column:span 2}
+@media (max-width:1000px){.research{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.research{grid-template-columns:1fr}.research .build.wide{grid-column:auto}}
+.recog{grid-template-columns:1fr 1fr}
+
 /* ---------- added motion: plotted drawing, live readouts, Z-rail, spotlight ---------- */
 .js .rig .plot{stroke-dasharray:1;stroke-dashoffset:1;animation:plot 1.6s var(--ease) forwards;animation-delay:var(--pd,.7s)}
 @keyframes plot{to{stroke-dashoffset:0}}
@@ -320,7 +485,7 @@ footer a:hover{color:var(--accent)}
 
 .glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;
   background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(232,116,59,.10),transparent 65%)}
-.tile:hover .glow,.degree:hover .glow,.skill:hover .glow{opacity:1}
+.tile:hover .glow,.feat:hover .glow,.degree:hover .glow,.skill:hover .glow,.build:hover .glow,.spot:hover .glow,.miet:hover .glow{opacity:1}
 .skill{position:relative;overflow:hidden}
 
 /* ---------- motion ---------- */
@@ -332,6 +497,7 @@ footer a:hover{color:var(--accent)}
 @keyframes rise{to{transform:none}}
 @keyframes boot{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
+  .charge{transform:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .reveal,.js .hero .boot,.js .hero h1 .line span{opacity:1;transform:none}
@@ -347,9 +513,11 @@ footer a:hover{color:var(--accent)}
     <a class="mark" href="#top" aria-label="Sobin Sunny, back to top"><i aria-hidden="true">SS</i>Sobin Sunny</a>
     <ul>
       <li><a href="#work">Work</a></li>
-      <li><a href="#impact">Impact</a></li>
       <li><a href="#career">Career</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#media">Media</a></li>
     </ul>
     <a class="btn sm primary" href="#contact">Get in touch</a>
   </div>
@@ -359,25 +527,26 @@ footer a:hover{color:var(--accent)}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="status boot" style="--d:.1s"><span class="dot" aria-hidden="true"></span>Robotics R&amp;D, London</span>
+        <span class="status boot" style="--d:.1s"><span class="dot" aria-hidden="true"></span>Mechatronics · Robotics · Automation · London</span>
         <h1 aria-label="Sobin Sunny, MIET">
           <span class="line" aria-hidden="true"><span>Sobin</span></span>
           <span class="line" aria-hidden="true"><span>Sunny<sup>MIET</sup></span></span>
         </h1>
-        <p class="role boot" style="--d:.35s">Mechatronics and robotics engineer who builds <em class="s">laboratory robots</em> people can trust.</p>
-        <p class="lede boot" style="--d:.45s">I design, test and certify laboratory robots used in public health, biopharma and research labs. My work spans embedded hardware, robot software and machine safety. I also connect our instruments to open source lab automation software, so scientists can control them with free tools.</p>
+        <p class="role boot" style="--d:.35s">Mechatronics engineer who builds <em class="s">robots and automation</em> people can trust.</p>
+        <p class="lede boot" style="--d:.45s">I build robots and automated systems for manufacturing plants, laboratories and research. My work sits where mechanics, electronics, embedded firmware and software meet. In Scotland I led condition monitoring automation on a wood panel production line. Today I design, test and certify robots in London, and I contribute actively to open source projects.</p>
         <div class="cta boot" style="--d:.55s">
           <a class="btn primary" href="#work">See my work <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a class="btn" href="https://www.linkedin.com/in/sobin-sunny/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.67 0-1.92 1.3-1.92 2.64V21h-4z"/></svg>
             LinkedIn
           </a>
+          <a class="btn pod" href="https://open.spotify.com/episode/5fwhOuTlOkwevnCrAPnNIq" target="_blank" rel="noopener noreferrer"><span class="dot" aria-hidden="true"></span>Hear my podcast</a>
         </div>
       </div>
 
       <!-- Animated drawing of a liquid-handling gantry: X carriage travels, Z head dips into wells. -->
-      <figure class="rig boot" style="--d:.5s;margin:0" aria-label="Animated drawing of a liquid handling robot moving across a well plate">
-        <div class="hdr"><span>DWG · LH-GANTRY</span><span>Sheet 1 of 1</span></div>
+      <figure class="rig boot" id="rig" style="--d:.5s;margin:0" aria-label="Animated drawing of a Cartesian liquid handling robot moving across a well plate">
+        <div class="hdr"><span>DWG · LH-GANTRY</span><span>Sheet 1 of 5</span></div>
         <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
           <defs>
             <pattern id="wells" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
@@ -437,7 +606,7 @@ footer a:hover{color:var(--accent)}
       <div class="fig reveal" style="--d:.06s"><b><span data-count="25">25</span><span class="u">+</span></b><span>robotics and embedded clients, including IITs and NITs</span></div>
       <div class="fig reveal" style="--d:.12s"><b><span data-count="251">251</span></b><span>plant assets ranked by criticality to scope a monitoring programme</span></div>
       <div class="fig reveal" style="--d:.18s"><b><span data-count="32">32</span></b><span>mechanical safety tests planned and directed on a lab robot</span></div>
-      <div class="fig reveal" style="--d:.24s"><b><span data-count="2">2</span></b><span>customer lab commissionings, including UKHSA Colindale</span></div>
+      <div class="fig reveal" style="--d:.24s"><b><span data-count="5">5</span></b><span>production areas brought under condition monitoring</span></div>
     </div>
   </div>
 </header>
@@ -451,31 +620,120 @@ footer a:hover{color:var(--accent)}
 
 <main id="main">
 
+<section class="media" id="media" aria-label="In the media">
+  <div class="wrap">
+    <span class="label" style="display:block;margin-bottom:14px"><b style="color:var(--accent);font-weight:500">●</b> In the media</span>
+    <div class="media-grid">
+      <a class="mcard reveal" href="https://theinterviewportal.com/2025/08/30/mechatronics-engineer-interview-10/" target="_blank" rel="noopener noreferrer">
+        <span class="disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>
+        <span>
+          <span class="kick">Interview · The Interview Portal · 2025</span>
+          <h3>Mechatronics Engineer Interview</h3>
+          <p>My path into robotics, how lab automation takes people away from risky, repetitive work, and advice for anyone starting out in engineering.</p>
+          <span class="go">Read the interview <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </span>
+      </a>
+      <a class="mcard pod reveal" style="--d:.08s" href="https://open.spotify.com/episode/5fwhOuTlOkwevnCrAPnNIq" target="_blank" rel="noopener noreferrer">
+        <span class="disc" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i><i></i></span></span>
+        <span>
+          <span class="kick">Podcast · Spotify · 2025</span>
+          <h3>Using technology to save lives</h3>
+          <p>A five minute episode on building robots that take over high-risk laboratory work, so fewer people are exposed to it.</p>
+          <span class="go">Listen on Spotify <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11L11 5M6 5h5v5"/></svg></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="label"><b>01</b> / Selected work</span>
-      <h2>Work that <em class="s">ships</em> to real labs</h2>
-      <p>Six projects from the last three years. Each one shows the problem, what I did and what changed as a result.</p>
+      <h2>Automation that <em class="s">runs</em> in the real world</h2>
+      <p>Five projects across manufacturing, machine safety and laboratory automation. Each one shows the problem, what was done and what changed as a result.</p>
     </div>
 
     <div class="cases">
 
       <article class="case reveal">
-        <div class="no"><b>01</b><span>2025 to present</span></div>
+        <div class="no"><b>01</b><span>Jun 2023 to Jan 2025</span></div>
         <div class="head">
-          <div class="chips"><span class="chip done">Complete</span><span class="chip ongoing">SDK ongoing</span><span class="chip">Open source</span></div>
-          <h3>Bringing lab instruments onto PyLabRobot</h3>
+          <div class="chips"><span class="chip done">In daily use</span><span class="chip">Manufacturing</span><span class="chip">Industrial IoT</span></div>
+          <h3>Condition monitoring automation for wood panel manufacturing</h3>
           <dl>
-            <div><dt>Role</dt><dd>Proposed the approach to the R&amp;D Director, then built it</dd></div>
-            <div><dt>Tools</dt><dd>Python, PyLabRobot, serial protocol capture, legacy instrument runtime</dd></div>
+            <div><dt>Role</dt><dd>Programme lead and budget holder</dd></div>
+            <div><dt>Tools</dt><dd>AVEVA Insight, Schneider TM262 with TM3, OPC-UA, Modbus, MQTT, Power BI</dd></div>
           </dl>
+          <figure class="rig " style="margin:0" aria-label="Animated drawing of a wood panel production line with a vibration trend flagging an early bearing fault">
+          <div class="hdr"><span>DWG · PANEL-LINE</span><span>Sheet 2 of 5</span></div>
+          <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
+          <defs><clipPath id="beltclip"><rect x="52" y="236" width="296" height="40"/></clipPath></defs>
+          <text x="40" y="50" class="live">SENSORS · IIoT</text>
+          <text x="148" y="50" class="live">OPC-UA · MQTT</text>
+          <text x="360" y="50" text-anchor="end" class="live st-n">STATE NORMAL</text>
+          <text x="360" y="50" text-anchor="end" class="live hot st-a">STATE ANOMALY</text>
+          <rect x="40" y="60" width="320" height="270" rx="6" class="stroke plot restart" stroke-width="1.2" pathLength="1"/>
+          <line x1="40" y1="96" x2="360" y2="96" class="stroke plot restart" stroke-width="1" pathLength="1" style="--pd:.3s"/>
+          <text x="200" y="82" text-anchor="middle" class="readout">PLANT DATA → HISTORIAN → ANOMALY MODEL</text>
+          <!-- vibration trend -->
+          <g stroke="#3d3931" stroke-width=".8">
+            <line x1="56" y1="110" x2="56" y2="184"/><line x1="56" y1="184" x2="344" y2="184"/>
+          </g>
+          <line x1="56" y1="134" x2="344" y2="134" stroke="#e8743b" stroke-width=".8" stroke-dasharray="3 4" opacity=".6"/>
+          <text x="62" y="128" class="readout">ALARM LIMIT</text>
+          <text x="62" y="196" class="readout">VIBRATION · DRIVE END BEARING</text>
+          <path class="trend restart" pathLength="1" stroke="#9cc59a" stroke-width="1.4" stroke-linejoin="round"
+            d="M60 168 L72 164 L84 170 L96 165 L108 169 L120 163 L132 168 L144 166 L156 170 L168 164 L180 167 L192 162 L204 166 L216 160 L228 158 L240 154 L250 146 L258 136 L266 128 L272 124 L280 132 L290 148 L304 158 L318 162 L330 164 L340 166"/>
+          <g class="alert restart">
+            <circle cx="272" cy="124" r="4" fill="#e8743b"/>
+            <circle class="alert-ring" cx="272" cy="124" r="6" stroke="#e8743b" stroke-width="1"/>
+            <text x="344" y="114" text-anchor="end" class="readout" style="fill:#e8743b">EARLY WARNING · BEARING</text>
+          </g>
+          <!-- press station -->
+          <rect x="160" y="200" width="80" height="10" rx="2" fill="#25231e" stroke="#6d685f"/>
+          <line x1="168" y1="210" x2="168" y2="262" stroke="#3d3931" stroke-width="2"/>
+          <line x1="232" y1="210" x2="232" y2="262" stroke="#3d3931" stroke-width="2"/>
+          <g class="platen"><rect x="176" y="210" width="48" height="8" rx="1.5" fill="#e8743b"/><line x1="200" y1="204" x2="200" y2="210" stroke="#6d685f"/></g>
+          <!-- conveyor + moving panels -->
+          <g clip-path="url(#beltclip)">
+            <g class="panels">
+              <rect x="-28" y="254" width="50" height="10" rx="1.5" fill="#3a2c20" stroke="#6d685f" stroke-width=".8"/>
+              <rect x="52" y="254" width="50" height="10" rx="1.5" fill="#3a2c20" stroke="#6d685f" stroke-width=".8"/>
+              <rect x="132" y="254" width="50" height="10" rx="1.5" fill="#3a2c20" stroke="#6d685f" stroke-width=".8"/>
+              <rect x="212" y="254" width="50" height="10" rx="1.5" fill="#3a2c20" stroke="#6d685f" stroke-width=".8"/>
+              <rect x="292" y="254" width="50" height="10" rx="1.5" fill="#3a2c20" stroke="#6d685f" stroke-width=".8"/>
+            </g>
+          </g>
+          <rect x="52" y="264" width="296" height="8" rx="4" fill="#25231e" stroke="#3d3931"/>
+          <g fill="#13120f" stroke="#6d685f" stroke-width=".8">
+            <circle cx="64" cy="268" r="3"/><circle cx="104" cy="268" r="3"/><circle cx="144" cy="268" r="3"/><circle cx="184" cy="268" r="3"/><circle cx="224" cy="268" r="3"/><circle cx="264" cy="268" r="3"/><circle cx="304" cy="268" r="3"/><circle cx="336" cy="268" r="3"/>
+          </g>
+          <!-- drive motor, bearing, wireless sensor -->
+          <rect x="60" y="288" width="40" height="24" rx="3" fill="#2f2c26" stroke="#6d685f"/>
+          <line x1="100" y1="300" x2="122" y2="300" stroke="#6d685f" stroke-width="2"/>
+          <rect x="122" y="290" width="22" height="20" rx="2" fill="#25231e" stroke="#6d685f"/>
+          <circle cx="111" cy="300" r="5" stroke="#e8743b" stroke-width="1.2"/>
+          <rect x="106" y="279" width="10" height="7" rx="1" fill="#e8743b"/>
+          <g class="waves" stroke="#e8743b" stroke-width=".9" fill="none">
+            <path d="M120 279 a6 6 0 0 1 0 8"/><path d="M124 276 a10 10 0 0 1 0 14"/>
+          </g>
+          <text x="152" y="290" class="readout">DRIVE · GEARBOX</text>
+          <text x="152" y="301" class="readout">WIRELESS VIBRATION SENSOR</text>
+          <!-- thermal oil line -->
+          <line x1="52" y1="322" x2="348" y2="322" stroke="#3d3931" stroke-width="3"/>
+          <line x1="52" y1="322" x2="348" y2="322" class="flow" stroke="#e8743b" stroke-width="1.2" opacity=".7"/>
+          <text x="344" y="316" text-anchor="end" class="readout">THERMAL OIL</text>
+          <text x="200" y="350" text-anchor="middle" class="readout">WOOD PANEL LINE · CONDITION MONITORING</text>
+        </svg>
+          <div class="ftr"><span>FMECA · 251 assets · 5 areas</span><span style="color:var(--ok)"><b style="color:inherit">●</b> PLC online</span></div>
+        </figure>
         </div>
         <div class="body">
-          <p>PyLabRobot is a free, open source Python framework for lab automation. It lets scientists control robots from different makers with the same code. Most lab robots only run on their maker's own software, which locks labs in and makes methods hard to share.</p>
-          <p>I made an automated liquid dispenser fully compatible with PyLabRobot. The dispenser was a legacy serial device with only an old manual. I captured its live serial traffic and found the timing problems that were causing lost commands. It now runs from Python as a tested driver.</p>
-          <p>I am now leading a Python SDK for our liquid handling robots. I designed it to sit on top of the existing control software through a defined interface. That way, proven code already serving customers does not need to change.</p>
-          <p class="why"><span>Why it matters</span>Labs using open tools can add these instruments without buying into a closed system, and methods become easier to repeat and share.</p>
+          <p>At a wood-based panel board plant in Scotland, I led an anomaly based condition monitoring programme across five production areas, and held its budget. An FMECA of 251 plant assets, ranked across five criticality levels, set the scope.</p>
+          <p>The hardware covered Schneider TM262 PLCs and a wireless sensor network. Plant data came in over OPC-UA, Modbus and MQTT, into a data historian with Power BI reporting. All installation ran under permit-to-work in ATEX zones, with risk assessments and method statements I wrote.</p>
+          <p>The system gave early warning of a bearing problem on the thermal oil system that the existing SCADA did not show. It moved from pilot stage to day-to-day use by process, production and maintenance engineers. Alongside it, I developed telematics based predictive maintenance and mapped AGV options for warehouse automation.</p>
+          <p class="why"><span>Why it matters</span>On a continuous production line, a fault caught early is a planned repair instead of an unplanned stop.</p>
         </div>
       </article>
 
@@ -483,130 +741,71 @@ footer a:hover{color:var(--accent)}
         <div class="no"><b>02</b><span>May 2026 to present</span></div>
         <div class="head">
           <div class="chips"><span class="chip ongoing">Certification in progress</span><span class="chip">Machine safety</span></div>
-          <h3>Safety testing and certification of a liquid handling Cartesian robot</h3>
+          <h3>Machine safety testing and CE certification of a Cartesian robot</h3>
           <dl>
             <div><dt>Standards</dt><dd>EN ISO 12100, Machinery Directive, CE marking</dd></div>
             <div><dt>Outputs</dt><dd>Test plan, test records, NCRs, component compliance tracker</dd></div>
           </dl>
         </div>
         <div class="body">
-          <p>I own the preparation of a liquid handling Cartesian robot for third party safety certification with Eurofins. I wrote the mechanical safety test plan of 32 tests and directed the testing.</p>
-          <p>During testing I found that any magnet could defeat the guard interlock. That was a critical safety risk. I restricted use of the machine and raised a non-conformance. I instructed the design engineer to redesign it with a SICK reed switch. I closed the NCR only after a verified re-test.</p>
-          <p>I also gather compliance certificates from manufacturers and suppliers for every critical component, and track them against the certification evidence.</p>
-          <p class="why"><span>Why it matters</span>The robot is used by lab staff every day, and a guard that anyone can bypass puts them at risk.</p>
+          <p>Preparing a three axis Cartesian robot for third party safety certification with Eurofins is my responsibility. I wrote the mechanical safety test plan of 32 tests and directed the testing.</p>
+          <p>One test showed that any magnet could defeat the guard interlock, a critical safety risk. Use of the machine was restricted straight away and a non-conformance raised. On my instruction, the design engineer redesigned it around a SICK reed switch. The NCR closed only after a verified re-test.</p>
+          <p>For each critical component, I gather compliance certificates from manufacturers and suppliers and track them against the certification evidence.</p>
+          <p class="why"><span>Why it matters</span>People work beside this machine every day, and a guard that anyone can bypass puts them at risk.</p>
         </div>
       </article>
 
       <article class="case reveal">
-        <div class="no"><b>03</b><span>Feb to May 2026</span></div>
+        <div class="no"><b>03</b><span>2025 to present</span></div>
         <div class="head">
-          <div class="chips"><span class="chip done">Commissioned 22 Apr 2026</span><span class="chip">Biopharma</span></div>
-          <h3>Replacing a decades old MS-DOS system at a biopharma lab</h3>
+          <div class="chips"><span class="chip done">Complete</span><span class="chip ongoing">SDK ongoing</span><span class="chip">Open source</span></div>
+          <h3>Python integration for automated instruments</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Proposed the approach to the R&amp;D Director, then built it</dd></div>
+            <div><dt>Tools</dt><dd>Python, PyLabRobot, serial protocol capture, legacy instrument runtime</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>PyLabRobot is an open source Python framework for automating laboratory hardware. It lets users drive equipment from different makers in one Python workflow.</p>
+          <p>The first target was an automated liquid dispenser, a legacy serial device documented only by an old manual. Capturing its live serial traffic exposed the timing problems behind lost commands. It now runs from Python as a tested driver, fully compatible with PyLabRobot.</p>
+          <p>Building on that, I am leading a Python SDK for our robots. It sits on top of the existing control software through a defined interface, so proven code already serving customers stays unchanged.</p>
+          <p class="why"><span>Why it matters</span>Python support lets customers fit an instrument into their own automated workflows, next to the rest of their equipment.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>04</b><span>Feb to May 2026</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip done">Commissioned 22 Apr 2026</span><span class="chip">Process automation</span></div>
+          <h3>Replacing a decades old MS-DOS system with modern automation</h3>
           <dl>
             <div><dt>Role</dt><dd>Requirements, protocols, testing, on-site commissioning, training</dd></div>
           </dl>
         </div>
         <div class="body">
-          <p>A biopharma lab in London was still running its gel punching process on an MS-DOS system. I worked with the customer to define their requirements and wrote the protocols for the new automated system.</p>
-          <p>I tested parallel and series vacuum set-ups to find which gave the better performance. I then commissioned the system at the customer's lab and trained their staff to use it.</p>
-          <p class="why"><span>Result</span>A faster Windows based system with run logging, on supported hardware the lab can maintain.</p>
+          <p>A biopharma lab in London was still running its gel punching process on an MS-DOS system. Working with the customer, I defined their requirements and wrote the protocols for the new automated system.</p>
+          <p>Tests of parallel and series vacuum set-ups showed which gave the better performance. I then commissioned the system on site and trained the customer's staff.</p>
+          <p>Since October 2025 I have also built and supported an automated column purification application for an OEM partner. To deliver these applications, I learned a proprietary robot programming language within two months.</p>
+          <p class="why"><span>Result</span>A faster Windows based system with run logging, on supported hardware the customer can maintain.</p>
         </div>
       </article>
 
       <article class="case reveal">
-        <div class="no"><b>04</b><span>Jun 2023 to Jan 2025</span></div>
+        <div class="no"><b>05</b><span>2019 to present</span></div>
         <div class="head">
-          <div class="chips"><span class="chip done">In daily use</span><span class="chip">Manufacturing</span></div>
-          <h3>Condition monitoring programme for a manufacturing plant</h3>
+          <div class="chips"><span class="chip">Embedded</span><span class="chip">Motion control</span><span class="chip">Diagnostics</span></div>
+          <h3>Embedded hardware, motion control and field commissioning</h3>
           <dl>
-            <div><dt>Role</dt><dd>Programme lead and budget holder</dd></div>
-            <div><dt>Tools</dt><dd>AVEVA Insight, Schneider TM262 with TM3, Modbus, MQTT, Power BI</dd></div>
+            <div><dt>Parts and methods</dt><dd>Allegro A9102, RC filter design, MCU boards, LUT stepper control, protocol and log analysis</dd></div>
           </dl>
         </div>
         <div class="body">
-          <p>I led an anomaly based condition monitoring programme across five production areas of a working plant, and held its budget. I set the scope using an FMECA of 251 plant assets, ranked across five criticality levels.</p>
-          <p>I specified Schneider TM262 PLCs and sensor networks, brought plant data in over Modbus and MQTT, and built a data historian with Power BI reporting. I worked under permit-to-work in ATEX zones and wrote the risk assessments and method statements for installation.</p>
-          <p>The system gave early warning of a bearing problem on the thermal oil system that the existing SCADA did not show. I took the programme from pilot stage to day-to-day use by process, production and maintenance engineers. I also saved over £2,000 by learning AVEVA Insight through free resources instead of paid training.</p>
+          <p>For a cover sensor, I designed a circuit around an Allegro A9102 linear Hall effect sensor. Parts of the original schematic were distorting the analog signal, so I removed them and added an RC low-pass filter to cut ADC noise.</p>
+          <p>Stepper motor motion profiles for the X, Y and Z axes came from the controller's speed lookup table. When a robot showed intermittent faults, its runtime logs pointed to a wireless link with an accessory module. Barcode read failures traced back to label print quality, fixed by changing the printer settings.</p>
+          <p>Field work includes a full service manual written from scratch, and commissioning at UKHSA Colindale and a biopharma site. Earlier, at Entrench Electronics, I designed microcontroller boards and built automation systems for university and industry labs.</p>
         </div>
       </article>
 
-      <article class="case reveal">
-        <div class="no"><b>05</b><span>Lab automation</span></div>
-        <div class="head">
-          <div class="chips"><span class="chip">Hardware</span><span class="chip">Diagnostics</span></div>
-          <h3>Hardware design and fault finding on lab robots</h3>
-          <dl>
-            <div><dt>Parts and methods</dt><dd>Allegro A9102, RC filter design, LUT stepper control, protocol and log analysis</dd></div>
-          </dl>
-        </div>
-        <div class="body">
-          <p>I designed a cover sensor circuit around an Allegro A9102 linear Hall effect sensor. I removed parts of the original schematic that were distorting the analog signal and added an RC low-pass filter to cut ADC noise.</p>
-          <p>I worked out stepper motor motion profiles for the X, Y and Z axes from the controller's speed lookup table. When a robot showed intermittent faults, I decoded its runtime logs and traced the cause to a wireless link with an accessory module.</p>
-          <p>I also led an investigation into barcode read failures. I found the cause was label print quality, and had the thermal print settings changed in production.</p>
-        </div>
-      </article>
-
-      <article class="case reveal">
-        <div class="no"><b>06</b><span>2025 to present</span></div>
-        <div class="head">
-          <div class="chips"><span class="chip done">In use by customers</span><span class="chip">Documentation</span></div>
-          <h3>Service manual, customer applications and training</h3>
-          <dl>
-            <div><dt>Customers</dt><dd>UKHSA, an OEM research partner, biopharma</dd></div>
-          </dl>
-        </div>
-        <div class="body">
-          <p>I wrote a liquid handling robot service manual from scratch, so customers and engineers can fix common faults themselves. I commissioned a lab automation system at UKHSA Colindale and trained the customer's staff.</p>
-          <p>Since October 2025 I have built and supported an automated column purification application for an OEM partner, used by their research customers. In 2026 I adapted it into a second application for flushing the columns.</p>
-          <p>I learned a proprietary robot programming language within two months and used it for these commercial applications.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="impact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="label"><b>02</b> / Impact</span>
-      <h2>Beyond the <em class="s">day job</em></h2>
-    </div>
-    <div class="bento">
-      <div class="tile t-a reveal">
-        <span class="label">Teaching</span>
-        <div>
-          <div class="big"><span data-count="600">600</span><span class="u">+</span></div>
-          <h3 style="margin-top:18px">people trained</h3>
-          <p style="margin-top:10px;max-width:46ch">I delivered technical training in embedded systems, robotics and automation to over 600 candidates. I also built robotics and automation systems for university and industry labs.</p>
-        </div>
-      </div>
-      <div class="tile t-b reveal" style="--d:.06s">
-        <span class="label">Universities</span>
-        <h3>Trusted by India's premier national institutes</h3>
-        <p>I delivered robotics, autonomous vehicle and embedded systems projects for more than 25 clients, including <strong>IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum</strong>, some of the country's most prestigious public universities.</p>
-      </div>
-      <div class="tile t-c reveal" style="--d:.12s">
-        <span class="label">Consulting</span>
-        <h3>Subject matter expert and consultant</h3>
-        <p>Companies engage me as a subject matter expert and consultant in mechatronics, robotics and automation. I advise on system architecture, machine safety, sensing and control, condition monitoring and automating manual processes. One research firm engaged me to advise on automated dust extraction for processes involving wood dust.</p>
-      </div>
-      <div class="tile t-d reveal">
-        <span class="label">Open source</span>
-        <h3>Open tools for scientists</h3>
-        <p>My PyLabRobot work helps labs use commercial instruments with free, shared software instead of closed vendor tools.</p>
-      </div>
-      <div class="tile t-e reveal" style="--d:.06s">
-        <span class="label">Community</span>
-        <div class="big"><span data-count="162">162</span></div>
-        <h3>meals rescued from waste</h3>
-        <p>I have volunteered with Olio since 2021, collecting surplus food from local stores and sharing it with neighbours. I persuaded partner stores to restart donations after a pause. I also volunteered with FareShare in 2021 and 2022.</p>
-      </div>
-      <div class="tile t-f reveal" style="--d:.12s">
-        <span class="label">Team</span>
-        <h3>Monthly technical knowledge-sharing session</h3>
-        <p>With my director's approval, I am setting up a monthly session where colleagues share lessons from faults, safety findings and new tools.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -614,8 +813,8 @@ footer a:hover{color:var(--accent)}
 <section id="career">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="label"><b>03</b> / Career</span>
-      <h2>From freelance builds to <em class="s">certified</em> machines</h2>
+      <span class="label"><b>02</b> / Career</span>
+      <h2>From embedded boards to <em class="s">certified</em> machines</h2>
     </div>
     <ol class="timeline" id="timeline">
       <li class="reveal">
@@ -638,8 +837,8 @@ footer a:hover{color:var(--accent)}
         <span class="when">Aug 2022 to May 2023</span>
         <div class="card">
           <h3>Technical Consultant</h3>
-          <p class="org">Astoria</p>
-          <p>Introduced CRM, automation and data reporting tools for a 130 person organisation, alongside my MSc.</p>
+          <p class="org">Healthcare, England</p>
+          <p>Introduced CRM, automation and data reporting tools for a 130 person organisation.</p>
         </div>
       </li>
       <li class="reveal">
@@ -651,14 +850,70 @@ footer a:hover{color:var(--accent)}
         </div>
       </li>
       <li class="reveal">
-        <span class="when">Alongside my BEng</span>
+        <span class="when">2016 to 2019</span>
         <div class="card">
-          <h3>Robotics and Embedded Systems Consultant</h3>
+          <h3>Robotics and Embedded Systems Consultant and Trainer</h3>
           <p class="org">Freelance, India</p>
-          <p>Delivered projects for 25+ clients, including IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum.</p>
+          <p>Delivered projects for 25+ clients, including IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum. I was also a corporate trainer for Adobe in IoT and machine learning.</p>
         </div>
       </li>
     </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>03</b> / Skills</span>
+      <h2>What I bring to a <em class="s">machine</em></h2>
+      <p>Mechatronics is about joining disciplines. These are the ones I work across, and where I have used them.</p>
+    </div>
+    <div class="skillx">
+      <div class="sk reveal" style="--d:0.00s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20h16M7 20v-3l4-7 5 2"/><circle cx="11" cy="10" r="1.6"/><circle cx="16.5" cy="12" r="1.6"/><path d="M18 12.5l2 3"/></svg></span><h3>Robotics and motion</h3></div>
+        <p>Cartesian gantries in the lab, robot arms and delta robots in training, and autonomous vehicles in research.</p>
+        <ul class="tags"><li>Cartesian robots</li><li>Universal Robots (UR)</li><li>ABB RobotStudio</li><li>Delta and hygienic robots</li><li>Stepper motion profiles</li><li>Motion control</li><li>ROS</li><li>Gazebo</li><li>EKF sensor fusion</li><li>Mapping and localisation</li><li>AGV and AMR planning</li></ul>
+      </div>
+      <div class="sk reveal" style="--d:0.05s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 20V10l5 3V10l5 3V6h3l1 14z"/><path d="M3 20h18"/></svg></span><h3>Industrial automation and controls</h3></div>
+        <p>Plant data from sensor to dashboard, on a live wood panel production site.</p>
+        <ul class="tags"><li>Schneider TM262 PLCs</li><li>SCADA</li><li>AVEVA InTouch HMI</li><li>AVEVA Insight</li><li>OPC-UA</li><li>Modbus</li><li>MQTT</li><li>Industrial IoT</li><li>Data historians</li><li>MES and CMMS data</li><li>Condition monitoring</li><li>Predictive maintenance</li></ul>
+      </div>
+      <div class="sk reveal" style="--d:0.10s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span><h3>Embedded systems and electronics</h3></div>
+        <p>From microcontroller boards and sensor circuits to reading firmware logs on a faulty machine.</p>
+        <ul class="tags"><li>Embedded firmware</li><li>Microcontroller boards</li><li>Sensor circuit design</li><li>Hall effect sensing</li><li>Analog filtering and ADCs</li><li>Serial protocols</li><li>Wireless links</li><li>IoT systems</li><li>Electro-mechanical troubleshooting</li></ul>
+      </div>
+      <div class="sk reveal" style="--d:0.15s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span><h3>Software, data and AI</h3></div>
+        <p>Python for machines and data, and machine learning used in production and research.</p>
+        <ul class="tags"><li>Python</li><li>PyLabRobot</li><li>SDK design</li><li>Robot protocol development</li><li>Machine learning</li><li>Anomaly detection</li><li>Neural networks</li><li>Computer vision</li><li>Power BI</li><li>Log and protocol analysis</li></ul>
+      </div>
+      <div class="sk reveal" style="--d:0.20s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Safety, quality and compliance</h3></div>
+        <p>Testing machines against the standards, and closing out findings properly.</p>
+        <ul class="tags"><li>EN ISO 12100</li><li>Machinery Directive</li><li>CE marking</li><li>FMECA and criticality analysis</li><li>NCRs and re-test</li><li>ISO 13485</li><li>ISO 9001</li><li>ISO 14971</li><li>Six Sigma</li><li>Permit-to-work</li><li>ATEX zones</li><li>RAMS</li></ul>
+      </div>
+      <div class="sk reveal" style="--d:0.25s">
+        <div class="head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.8.3 5 2.7 5 5.8"/></svg></span><h3>Leading and communicating</h3></div>
+        <p>Budgets, stakeholders, training rooms and technical documents that other people rely on.</p>
+        <ul class="tags"><li>Programme budgets</li><li>OT, IT and OEM stakeholders</li><li>Contractor coordination</li><li>Customer commissioning</li><li>Technical training</li><li>Service manuals</li><li>Test plans and records</li><li>Project management</li><li>Agile Scrum</li></ul>
+      </div>
+    </div>
+
+    <div class="certs">
+      <div class="miet reveal">
+        <span class="label">Professional registration</span>
+        <div class="big">MIET</div>
+        <p>Member of the Institution of Engineering and Technology. I log my professional development in IET Career Manager against the UK-SPEC competences, and I am working towards Chartered Engineer.</p>
+        <ul class="tags" style="margin-top:auto">
+          <li>Member, IET</li><li>IET EngX community</li><li>CPD logged since 2024</li><li>UK-SPEC self assessment complete</li><li>Working towards CEng</li>
+        </ul>
+      </div>
+      <div class="certlist reveal" style="--d:.06s">
+        <ol><li><span class="y">2026</span><span class="n">Diploma in Certified Associate in Project Management</span><span class="i">Alison</span></li><li><span class="y">2026</span><span class="n">Diploma in Project Management</span><span class="i">Alison</span></li><li><span class="y">2026</span><span class="n">Agile Scrum Training</span><span class="i">Master of Project Academy</span></li><li><span class="y">2026</span><span class="n">ISO/IEC 42001:2023 Artificial Intelligence Management System</span><span class="i">Alison</span></li><li><span class="y">2026</span><span class="n">Diploma in Machine Learning with Python</span><span class="i">Alison</span></li><li><span class="y">2024</span><span class="n">Delta Robots and Hygienic Robots</span><span class="i">ABB</span></li><li><span class="y">2024</span><span class="n">AVEVA Insight Guided Analytics, Supervised Learning for Condition Monitoring</span><span class="i">AVEVA</span></li><li><span class="y">2024</span><span class="n">Publishing Data from InTouch HMI to AVEVA Insight</span><span class="i">AVEVA</span></li><li><span class="y">2024</span><span class="n">Professional Certificate in Biomedical Engineering</span><span class="i">TU Delft</span></li><li><span class="y">2024</span><span class="n">Diploma in Six Sigma</span><span class="i">Alison</span></li><li><span class="y">2024</span><span class="n">ISO 13485:2016, ISO 9001:2015, ISO 14971:2019 and ISO 15189:2022</span><span class="i">Alison</span></li></ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -666,83 +921,256 @@ footer a:hover{color:var(--accent)}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="label"><b>04</b> / Education</span>
-      <h2>Education and <em class="s">recognition</em></h2>
+      <h2>Education and <em class="s">research</em></h2>
     </div>
 
     <div class="edu">
-      <article class="degree reveal">
-        <div class="top">
-          <span class="label">2021 to 2022</span>
-          <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>Distinction</span>
-        </div>
-        <h3>MSc Mechatronics and Intelligent Machines</h3>
-        <p class="school">University of Central Lancashire, UK</p>
-        <p>My dissertation was on autonomous vehicles.</p>
-        <div class="erasmus">
+      <article class="degree full reveal">
+        <div class="txt">
+          <div class="top">
+            <span class="label">2021 to 2022</span>
+            <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>Distinction</span>
+          </div>
+          <h3>MSc Mechatronics and Intelligent Machines</h3>
+          <p class="school">University of Central Lancashire, UK</p>
+          <div class="feature">
+            <span class="label">Dissertation</span>
+            <h4>Autonomous ground vehicle for warehouses and deliveries</h4>
+            <p>Warehouses often have no GPS, so the robot builds a 2D map and localises itself in it. Odometry and IMU data are fused with an extended Kalman filter for its state estimate. I simulated it in ROS with Gazebo, gave it vision based navigation from an onboard camera, and built an Arduino prototype controlled over Bluetooth.</p>
+          </div>
+          <div class="erasmus">
           <span class="label">Erasmus+ · 2022</span>
           <p>I was awarded <strong>prestigious</strong> Erasmus+ funding for my project proposal on remote condition monitoring of offshore wind turbines.</p>
         </div>
+        </div>
+        <figure class="rig " style="margin:0" aria-label="Animated drawing of an autonomous ground vehicle navigating warehouse bays">
+          <div class="hdr"><span>DWG · AGV-NAV</span><span>Sheet 3 of 5</span></div>
+          <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
+          <defs>
+            <pattern id="occ" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".8" fill="#3d3931"/></pattern>
+          </defs>
+          <text x="40" y="50" class="live">ODOM + IMU</text>
+          <text x="122" y="50" class="live">EKF POSE</text>
+          <text x="360" y="50" text-anchor="end" class="live hot">NAVIGATING</text>
+          <rect x="40" y="60" width="320" height="270" rx="6" class="stroke plot restart" stroke-width="1.2" pathLength="1"/>
+          <line x1="40" y1="96" x2="360" y2="96" class="stroke plot restart" stroke-width="1" pathLength="1" style="--pd:.3s"/>
+          <text x="200" y="82" text-anchor="middle" class="readout">ROS · GAZEBO · EKF SENSOR FUSION</text>
+          <rect x="44" y="100" width="312" height="226" fill="url(#occ)"/>
+          <!-- racking -->
+          <g fill="#1e1c18" stroke="#3d3931">
+            <rect x="70" y="122" width="90" height="26" rx="2"/><rect x="70" y="186" width="90" height="26" rx="2"/>
+            <rect x="240" y="122" width="90" height="26" rx="2"/><rect x="240" y="186" width="90" height="26" rx="2"/>
+          </g>
+          <g stroke="#2f2c26">
+            <line x1="100" y1="122" x2="100" y2="148"/><line x1="130" y1="122" x2="130" y2="148"/>
+            <line x1="100" y1="186" x2="100" y2="212"/><line x1="130" y1="186" x2="130" y2="212"/>
+            <line x1="270" y1="122" x2="270" y2="148"/><line x1="300" y1="122" x2="300" y2="148"/>
+            <line x1="270" y1="186" x2="270" y2="212"/><line x1="300" y1="186" x2="300" y2="212"/>
+          </g>
+          <text x="115" y="166" text-anchor="middle" class="readout">BAY A</text>
+          <text x="285" y="166" text-anchor="middle" class="readout">BAY B</text>
+          <!-- planned path -->
+          <path id="amrpath" d="M200 290 V108 H344 V238 H200 Z" stroke="#6d685f" stroke-width=".9" stroke-dasharray="3 5"/>
+          <!-- dock + goal -->
+          <rect x="182" y="292" width="36" height="22" rx="2" stroke="#6d685f" stroke-dasharray="2 3"/>
+          <text x="200" y="306" text-anchor="middle" class="readout">DOCK</text>
+          <g><circle cx="344" cy="238" r="4" stroke="#9cc59a"/><circle class="goal" cx="344" cy="238" r="7" stroke="#9cc59a" stroke-width=".8"/></g>
+          <text x="338" y="256" text-anchor="end" class="readout" style="fill:#9cc59a">GOAL</text>
+          <!-- robot -->
+          <g>
+            <path d="M0 0 L46 -14 A48 48 0 0 1 46 14 Z" fill="rgba(232,116,59,.13)">
+              <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/>
+            </path>
+            <rect x="-12" y="-9" width="24" height="18" rx="4" fill="#2f2c26" stroke="#eee9e1" stroke-width=".9"/>
+            <rect x="-9" y="-12" width="9" height="3" rx="1" fill="#6d685f"/><rect x="-9" y="9" width="9" height="3" rx="1" fill="#6d685f"/>
+            <circle cx="4" cy="0" r="3.2" fill="#e8743b"/>
+            <path d="M12 -4 L16 0 L12 4" stroke="#e8743b" stroke-width="1"/>
+            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto"><mpath href="#amrpath"/></animateMotion>
+          </g>
+          <text x="200" y="350" text-anchor="middle" class="readout">AUTONOMOUS GROUND VEHICLE · WAREHOUSE</text>
+        </svg>
+          <div class="ftr"><span>EKF fusion · vision navigation</span><span style="color:var(--ok)"><b style="color:inherit">●</b> Localised</span></div>
+        </figure>
       </article>
 
       <article class="degree reveal" style="--d:.08s">
         <div class="top">
           <span class="label">2015 to 2019</span>
-          <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>Distinction</span>
+          <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>First Class</span>
         </div>
         <h3>BEng Mechatronics Engineering</h3>
         <p class="school">Hindusthan College of Engineering and Technology, Anna University</p>
-        <div class="feature-row">
-          <div class="feature">
-            <span class="label">Final year project · Top grade</span>
-            <h4><em class="s">A reconfigurable autonomous mobile robot platform</em></h4>
-            <p>I built a mobile robot that navigates on its own and can be reconfigured for different tasks, rather than built for just one. The project received the top grade.</p>
+        <div class="feat2">
+          <div class="feat">
+            <figure class="rig wide" style="margin:0" aria-label="Animated drawing of a robot following a guide line and greeting a person">
+          <div class="hdr"><span>DWG · N-FUTURE</span><span>Sheet 4 of 5</span></div>
+          <svg viewBox="0 0 400 260" fill="none" aria-hidden="true">
+            <defs><pattern id="nfg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="#2a2823" stroke-width=".6"/></pattern></defs>
+            <rect x="20" y="20" width="360" height="200" rx="8" fill="url(#nfg)" stroke="#3d3931"/>
+            <path id="nfpath" d="M70 170 C70 70 150 60 200 110 S330 170 330 80" stroke="#e8743b" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+            <text x="34" y="40" class="readout">IR LINE FOLLOWING</text>
+            <rect x="250" y="150" width="34" height="28" rx="3" fill="#25231e" stroke="#6d685f"/>
+            <text x="267" y="196" text-anchor="middle" class="readout">OBSTACLE</text>
+            <g>
+              <circle r="15" fill="none" stroke="#e8743b" stroke-width=".8" opacity="0">
+                <animate attributeName="r" values="12;34" dur="1.4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".8;0" dur="1.4s" repeatCount="indefinite"/>
+              </circle>
+              <rect x="-13" y="-10" width="26" height="20" rx="5" fill="#2f2c26" stroke="#eee9e1" stroke-width=".9"/>
+              <rect x="-9" y="-13" width="9" height="3" rx="1" fill="#6d685f"/><rect x="-9" y="10" width="9" height="3" rx="1" fill="#6d685f"/>
+              <circle cx="6" cy="0" r="3.2" fill="#9cc59a"/>
+              <animateMotion dur="7s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;0" keyTimes="0;.5;1" calcMode="linear"><mpath href="#nfpath"/></animateMotion>
+            </g>
+            <g class="bubble">
+              <rect x="276" y="34" width="88" height="34" rx="8" fill="#25231e" stroke="#9cc59a" stroke-width=".9"/>
+              <path d="M300 68 l-6 10 l14 -10" fill="#25231e" stroke="#9cc59a" stroke-width=".9"/>
+              <text x="320" y="49" text-anchor="middle" class="readout" style="fill:#9cc59a">FACE FOUND</text>
+              <text x="320" y="61" text-anchor="middle" class="readout" style="fill:#eee9e1">"Hello there"</text>
+            </g>
+            <text x="34" y="210" class="readout">RASPBERRY PI · ULTRASONIC · PIR · CAMERA</text>
+          </svg>
+          <div class="ftr"><span>Reactive autonomy · vision</span><span style="color:var(--ok)"><b style="color:inherit">●</b> Running</span></div>
+        </figure>
+            <div class="fx">
+              <span class="label">Final year project · Top grade</span>
+              <h4>N-Future, a multi-role assistant robot</h4>
+              <p>A Raspberry Pi robot that follows a guide line with infrared sensing, and avoids obstacles using ultrasonic and motion sensors. Its camera recognises faces and starts a conversation through a chatbot. The project received the top grade.</p>
+            </div>
           </div>
-          <div class="feature">
-            <span class="label">Solar vehicle championship</span>
-            <h4>Winning business plan, against 130 teams</h4>
-            <p>I helped design and build a solar car that competed at Asia's largest solar vehicle championship, and I presented our team's business plan, which won.</p>
+          <div class="feat">
+            <figure class="rig wide" style="margin:0" aria-label="Animated drawing of a solar car charging its battery from the sun">
+          <div class="hdr"><span>DWG · SOLAR-EV</span><span>Sheet 5 of 5</span></div>
+          <svg viewBox="0 0 400 260" fill="none" aria-hidden="true">
+            <rect x="20" y="20" width="360" height="200" rx="8" fill="rgba(26,25,21,.6)" stroke="#3d3931"/>
+            <g class="sun"><circle cx="70" cy="62" r="16" fill="#e8743b"/>
+              <g stroke="#e8743b" stroke-width="1.4" stroke-linecap="round" class="rays">
+                <line x1="70" y1="36" x2="70" y2="28"/><line x1="70" y1="88" x2="70" y2="96"/><line x1="44" y1="62" x2="36" y2="62"/><line x1="96" y1="62" x2="104" y2="62"/>
+                <line x1="52" y1="44" x2="46" y2="38"/><line x1="88" y1="80" x2="94" y2="86"/><line x1="52" y1="80" x2="46" y2="86"/><line x1="88" y1="44" x2="94" y2="38"/>
+              </g></g>
+            <g stroke="#e8743b" stroke-width="1.2" class="beam"><line x1="92" y1="80" x2="170" y2="128"/><line x1="96" y1="70" x2="214" y2="124"/><line x1="100" y1="60" x2="252" y2="122"/></g>
+            <!-- car -->
+            <g transform="translate(0,0)">
+              <path d="M128 166 C140 140 168 128 210 126 C258 124 286 136 300 160 L306 170 L124 170 Z" fill="#25231e" stroke="#6d685f"/>
+              <rect x="160" y="120" width="104" height="8" rx="2" fill="#2f2c26" stroke="#e8743b" stroke-width=".9"/>
+              <g stroke="#e8743b" stroke-width=".6" opacity=".7"><line x1="186" y1="120" x2="186" y2="128"/><line x1="212" y1="120" x2="212" y2="128"/><line x1="238" y1="120" x2="238" y2="128"/></g>
+              <g class="wheel" style="transform-origin:160px 172px"><circle cx="160" cy="172" r="13" fill="#13120f" stroke="#eee9e1" stroke-width="1.2"/><line x1="160" y1="160" x2="160" y2="184" stroke="#6d685f"/><line x1="148" y1="172" x2="172" y2="172" stroke="#6d685f"/></g>
+              <g class="wheel" style="transform-origin:272px 172px"><circle cx="272" cy="172" r="13" fill="#13120f" stroke="#eee9e1" stroke-width="1.2"/><line x1="272" y1="160" x2="272" y2="184" stroke="#6d685f"/><line x1="260" y1="172" x2="284" y2="172" stroke="#6d685f"/></g>
+            </g>
+            <line x1="20" y1="186" x2="380" y2="186" stroke="#3d3931"/>
+            <line x1="20" y1="196" x2="380" y2="196" class="road" stroke="#6d685f" stroke-width="2"/>
+            <!-- battery -->
+            <rect x="300" y="40" width="58" height="22" rx="3" stroke="#6d685f"/><rect x="358" y="47" width="4" height="8" rx="1" fill="#6d685f"/>
+            <rect x="303" y="43" width="52" height="16" rx="2" fill="#9cc59a" class="charge"/>
+            <text x="329" y="78" text-anchor="middle" class="readout">BATTERY</text>
+            <text x="34" y="210" class="readout">SOLAR PANEL → BATTERY → MOTOR</text>
+          </svg>
+          <div class="ftr"><span>Electric solar vehicle</span><span style="color:var(--ok)"><b style="color:inherit">●</b> Charging</span></div>
+        </figure>
+            <div class="fx">
+              <span class="label">Solar vehicle championship</span>
+              <h4>Winning business plan, against 130 teams</h4>
+              <p>I helped design and build a solar car that competed at Asia's largest solar vehicle championship. I led the maintenance engineering team and presented our business plan, which won.</p>
+            </div>
           </div>
         </div>
       </article>
     </div>
+  </div>
+</section>
 
-    <div class="skills">
-      <div class="skill reveal">
-        <h3>Professional</h3>
-        <ul class="tags">
-          <li>MIET, working towards CEng</li>
-          <li>ISO 13485:2016</li>
-          <li>ISO 9001:2015</li>
-          <li>Six Sigma Diploma</li>
-          <li>Biomedical Engineering, TU Delft, 2024</li>
-        </ul>
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>05</b> / Research</span>
+      <h2>Research and <em class="s">prototypes</em></h2>
+      <p>Funded proposals and prototypes in autonomy, energy and machine intelligence.</p>
+    </div>
+    <div class="research">
+      <article class="build reveal wide"><span class="yr">2022 · Erasmus+ funded</span><h3>Condition monitoring for offshore wind turbines</h3><p>A research proposal on sustainable, remote condition monitoring of offshore wind turbines using machine learning, approved for Erasmus+ funding.</p><ul class="tags"><li>Machine learning</li><li>Condition monitoring</li><li>Sustainability</li></ul></article>
+      <article class="build reveal"><span class="yr">2021 to 2022</span><h3>Piezoelectric energy harvesting</h3><p>Design and development of an energy harvesting method using piezoelectric bending transducers.</p><ul class="tags"><li>Energy harvesting</li><li>Control</li></ul></article>
+      <article class="build reveal"><span class="yr">2019 to 2021</span><h3>Driverless vehicle perception</h3><p>A vehicle modelled for level 5 autonomy, then a YOLO based perception pipeline with fine tuning, object distance estimation, lane detection and spoken driving information.</p><ul class="tags"><li>YOLO</li><li>Computer vision</li><li>ADAS</li></ul></article>
+      <article class="build reveal"><span class="yr">2018</span><h3>Succor workspace robot</h3><p>A one-for-all autonomous robot for work spaces, taken from mechatronic design to a working prototype.</p><ul class="tags"><li>Mechatronic design</li><li>IoT</li></ul></article>
+      <article class="build reveal"><span class="yr">Research interest</span><h3>Brain computer interface prosthetics</h3><p>How brain signals could control prosthetic devices.</p><ul class="tags"><li>BCI</li><li>Prosthetics</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>06</b> / Recognition</span>
+      <h2>Honours and <em class="s">invitations</em></h2>
+      <p>Awards, invited lectures and industry training.</p>
+    </div>
+    <div class="recog">
+      <div class="spot reveal"><span class="label">Invited lecture</span><h3>Neural networks at IIST</h3><p>Lecture at the Indian Institute of Space Science and Technology, Thiruvananthapuram, an institute set up by ISRO.</p></div>
+      <div class="spot reveal" style="--d:.06s"><span class="label">Industry training</span><h3>Industrial IoT for Adobe</h3><p>Training for the Adobe Creative Technology Academy in Hyderabad, as a corporate trainer in IoT and machine learning.</p></div>
+      <div class="awards reveal"><div class="award"><h4>Best Manager</h4><span class="by">Hindusthan Group</span><p>Selected for my managerial skills and for how I handled the obstacles that came up.</p></div><div class="award"><h4>National engineering award</h4><span class="by">Micothlab India</span><p>Recognised nationally for engineering achievement and performance.</p></div><div class="award"><h4>Head and Honourable Ambassador</h4><span class="by">NSSC, IIT Kharagpur</span><p>Led the South Indian zone and represented Tamil Nadu at the national space challenge hosted by IIT Kharagpur, with support from ISRO.</p></div><div class="award"><h4>Best Paper Presentation</h4><span class="by">Illuminator, MEC</span><p>Awarded at a national event for my paper on the impact of technology in learning.</p></div><div class="award"><h4>Meritorious Essay</h4><span class="by">UNIC India and Bhutan, with SRCM</span><p>Honourable mention in an all India essay writing event.</p></div><div class="award"><h4>Zone Head</h4><span class="by">KARD India</span><p>Zone head for the Key Center for Advanced Research and Development.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>07</b> / Impact</span>
+      <h2>Beyond the <em class="s">day job</em></h2>
+    </div>
+    <div class="bento">
+      <div class="tile t-c reveal" style="--d:.12s">
+        <span class="label">Consulting</span>
+        <h3>Subject matter expert and consultant</h3>
+        <p>Companies engage me as a subject matter expert and consultant in mechatronics, robotics and automation. I advise on system architecture, machine safety, sensing and control, condition monitoring and automating manual processes. One research firm engaged me to advise on automated dust extraction for processes involving wood dust.</p>
       </div>
-      <div class="skill reveal" style="--d:.06s">
-        <h3>Software and controls</h3>
-        <ul class="tags">
-          <li>Python</li><li>PyLabRobot</li><li>Robot protocol development</li><li>Schneider PLCs</li><li>Modbus</li><li>MQTT</li>
-        </ul>
+      <div class="tile t-d reveal">
+        <span class="label">Open source</span>
+        <h3>Active open source contributor</h3>
+        <p>I contribute actively to open source projects in automation and robotics. Shared tools move a whole field forward, and I like to give back to the ones I build on.</p>
       </div>
-      <div class="skill reveal" style="--d:.12s">
-        <h3>Data</h3>
-        <ul class="tags">
-          <li>AVEVA Insight</li><li>Power BI</li><li>Data historians</li><li>Log and protocol analysis</li>
-        </ul>
+      <div class="tile t-e reveal" style="--d:.06s">
+        <span class="label">Community</span>
+        <h3>Engineering skills, given back</h3>
+        <p style="max-width:70ch">Away from work I give my time where it changes something for someone else. Sometimes that means opening a young person's eyes to engineering. Sometimes it means a van, a warehouse shelf and food that would otherwise be thrown away.</p>
+        <div class="vols">
+          <div class="vol"><span>STEM Ambassador</span><b>Showing young people what engineering can be</b><p>Volunteering to help the next generation picture themselves building the machines of the future.</p></div>
+          <div class="vol"><span>IET EngX</span><b>Community member</b><p>Part of the IET's global engineering community, learning from and sharing with engineers across disciplines.</p></div>
+          <div class="vol"><span>Olio · since 2021</span><b>Food Waste Hero</b><p>Collecting surplus food from local stores and passing it to neighbours who need it. When donations stopped, I persuaded partner stores to start again.</p></div>
+          <div class="vol"><span>FareShare · 2021 to 2022</span><b>Technical support and warehouse volunteer</b><p>Helping the volunteer manager run smoother workflows, and sorting stock so surplus food reached local charities. Formally recognised by management for going above and beyond.</p></div>
+        </div>
       </div>
-      <div class="skill reveal" style="--d:.18s">
-        <h3>Hardware and safety</h3>
-        <ul class="tags">
-          <li>Sensor circuits</li><li>Filtering</li><li>Stepper motion control</li><li>EN ISO 12100</li><li>Safety testing</li><li>Permit-to-work</li><li>ATEX zones</li><li>RAMS</li>
-        </ul>
+      <div class="tile t-a reveal">
+        <span class="label">Teaching</span>
+        <div>
+          <div class="big"><span data-count="600">600</span><span class="u">+</span></div>
+          <h3 style="margin-top:18px">people trained</h3>
+          <p style="margin-top:10px;max-width:50ch">I delivered technical training in embedded systems, robotics, IoT and machine learning to over 600 candidates. That included a lecture on neural networks at the Indian Institute of Space Science and Technology, set up by ISRO, and Industrial IoT training for Adobe in Hyderabad.</p>
+        </div>
+      </div>
+      <div class="tile t-b reveal" style="--d:.06s">
+        <span class="label">Universities</span>
+        <h3>Trusted by India's premier national institutes</h3>
+        <p>I delivered robotics, autonomous vehicle and embedded systems projects for more than 25 clients, including <strong>IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum</strong>, some of the country's most prestigious public universities.</p>
       </div>
     </div>
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <span class="label">05 / Contact</span>
+      <span class="label">08 / Contact</span>
       <h2 style="margin-top:22px">Let's build something <em class="s">precise.</em></h2>
       <div class="email-row">
         <a class="email" href="mailto:sobinsunny111@gmail.com">sobinsunny111@gmail.com</a>
@@ -814,7 +1242,7 @@ footer a:hover{color:var(--accent)}
       if (en.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
     });
   }, {rootMargin:'-45% 0px -50% 0px'});
-  ['work','impact','career','education','contact'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+  ['work','career','skills','education','research','media','contact'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
   // Timeline progress line
   const tl = document.getElementById('timeline');
@@ -826,6 +1254,8 @@ footer a:hover{color:var(--accent)}
   addEventListener('scroll', progress, {passive:true}); progress();
 
 
+
+  if (reduce) document.querySelectorAll('svg').forEach(sv => sv.pauseAnimations && sv.pauseAnimations());
   // Interlock self-check, then live X/Z readouts synced to the gantry animation
   const ilk = document.getElementById('ilk');
   if (ilk && !reduce) {
@@ -854,7 +1284,7 @@ footer a:hover{color:var(--accent)}
   const rail = document.querySelector('.zrail');
   if (rail) {
     const ticksBox = rail.querySelector('.ticks');
-    const secs = [['work','01'],['impact','02'],['career','03'],['education','04'],['contact','05']]
+    const secs = [['work','01'],['career','02'],['skills','03'],['education','04'],['research','05'],['recognition','06'],['impact','07'],['contact','08']]
       .map(([id,n]) => { const el = document.getElementById(id); if (!el) return null; const t = document.createElement('span'); t.className = 'tick'; t.textContent = n; ticksBox.appendChild(t); return {el, t}; })
       .filter(Boolean);
     let max = 1;
@@ -875,7 +1305,7 @@ footer a:hover{color:var(--accent)}
 
   // Spotlight that follows the pointer on cards
   if (!reduce && matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.tile,.degree,.skill').forEach(card => {
+    document.querySelectorAll('.tile,.sk,.build,.spot,.miet,.feat').forEach(card => {
       const g = document.createElement('span'); g.className = 'glow'; g.setAttribute('aria-hidden','true'); card.appendChild(g);
       card.addEventListener('pointermove', e => {
         const r = card.getBoundingClientRect();
