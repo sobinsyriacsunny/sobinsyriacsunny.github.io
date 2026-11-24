@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sobin Sunny MIET · Mechatronics and Robotics Engineer</title>
+<meta name="description" content="Portfolio of Sobin Sunny MIET, mechatronics and robotics engineer designing, testing and certifying laboratory robots in London, UK.">
+<meta name="theme-color" content="#13120f">
+<meta property="og:title" content="Sobin Sunny MIET · Mechatronics and Robotics Engineer">
+<meta property="og:description" content="I design, test and certify laboratory robots used in public health, biopharma and research labs.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2313120f'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='monospace' font-size='14' font-weight='700' fill='%23e8743b'%3ESS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direction: a dark machine-shop drawing sheet. Warm off-black, one signal-orange accent
+   (the colour of safety interlocks), mono annotations as the "drawing voice", and an
+   animated liquid-handling gantry as the hero's one memorable moment. */
+:root{
+  --bg:#13120f;
+  --bg-2:#1a1915;
+  --panel:#1e1c18;
+  --panel-2:#25231e;
+  --ink:#eee9e1;
+  --muted:#a39d92;
+  --faint:#6d685f;
+  --rule:#2f2c26;
+  --rule-2:#3d3931;
+  --accent:#e8743b;
+  --accent-ink:#1b0f08;
+  --accent-soft:rgba(232,116,59,.12);
+  --ok:#9cc59a;
+  --ok-soft:rgba(156,197,154,.12);
+  --display:"Bricolage Grotesque","Avenir Next",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+html,body{margin:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font:400 17px/1.62 var(--display);font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* drawing-sheet grid + vignette */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(1200px 700px at 85% -10%,rgba(232,116,59,.10),transparent 60%),
+    radial-gradient(900px 600px at -10% 40%,rgba(156,197,154,.05),transparent 60%),
+    linear-gradient(var(--rule) 1px,transparent 1px) 0 0/64px 64px,
+    linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/64px 64px;
+  opacity:.55;
+  mask-image:linear-gradient(180deg,#000 0,rgba(0,0,0,.35) 60%,rgba(0,0,0,.2) 100%);
+}
+/* grain on a fixed, non-interactive layer */
+body::after{
+  content:"";position:fixed;inset:-50%;z-index:100;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:var(--accent-ink)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{margin:0;font-weight:600;line-height:1.05;text-wrap:balance;letter-spacing:-.025em}
+p{margin:0}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono)}
+.label{font:500 11.5px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--accent);color:var(--accent-ink);padding:8px 12px;border-radius:6px;font:500 14px var(--mono)}
+.skip:focus{left:8px}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:14px 0 auto;z-index:50;pointer-events:none}
+.nav .bar{
+  pointer-events:auto;max-width:1176px;margin:0 auto;height:56px;padding:0 10px 0 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(26,25,21,.72);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);
+  border:1px solid var(--rule-2);border-radius:14px;
+  transition:transform .5s var(--ease),box-shadow .3s;
+}
+.nav.scrolled .bar{box-shadow:0 12px 40px -12px rgba(0,0,0,.6)}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:650;letter-spacing:-.01em}
+.mark i{width:26px;height:26px;border-radius:7px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 11px var(--mono);font-style:normal}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:7px 12px;border-radius:8px;text-decoration:none;font:500 13px var(--mono);color:var(--muted);transition:color .2s,background .2s}
+.nav ul a:hover{color:var(--ink);background:var(--panel-2)}
+.nav ul a.active{color:var(--ink);background:var(--panel-2)}
+.nav ul a.active::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:1px}
+@media (max-width:860px){.nav ul{display:none}.nav{inset:10px 12px auto}}
+
+/* ---------- buttons ---------- */
+.btn{
+  --b:var(--rule-2);
+  position:relative;display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px;
+  border:1px solid var(--b);border-radius:10px;background:var(--panel);color:var(--ink);
+  font:500 14px var(--mono);text-decoration:none;cursor:pointer;
+  transition:transform .2s var(--ease),border-color .2s,background .2s;
+}
+.btn:hover{transform:translateY(-2px);--b:var(--faint)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:16px;height:16px;flex:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{background:#f0824a}
+.btn.sm{height:40px;padding:0 14px;font-size:13px}
+.btn .arrow{transition:transform .25s var(--ease)}
+.btn:hover .arrow{transform:translateX(3px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:150px 0 40px;min-height:min(100svh,980px);display:flex;flex-direction:column;justify-content:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:6px 12px 6px 8px;border:1px solid var(--rule-2);border-radius:999px;background:rgba(30,28,24,.6);font:500 12px var(--mono);color:var(--muted)}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(156,197,154,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(156,197,154,.5)}70%{box-shadow:0 0 0 10px rgba(156,197,154,0)}100%{box-shadow:0 0 0 0 rgba(156,197,154,0)}}
+.hero h1{margin-top:26px;font-size:clamp(56px,9.2vw,132px);font-weight:700;letter-spacing:-.05em;line-height:.88}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line span{display:inline-block}
+.hero h1 sup{font:500 .14em var(--mono);letter-spacing:.1em;color:var(--accent);vertical-align:top;margin-left:.4em;position:relative;top:1.4em}
+.hero .role{margin-top:26px;font-size:clamp(20px,2.1vw,26px);line-height:1.3;font-weight:450;max-width:30ch}
+.hero .role em.s{color:var(--accent);font-size:1.12em}
+.hero .lede{margin-top:18px;max-width:56ch;color:var(--muted);font-size:17px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+
+/* gantry drawing */
+.rig{position:relative;aspect-ratio:1/1.02;border:1px solid var(--rule-2);border-radius:18px;background:linear-gradient(180deg,rgba(37,35,30,.75),rgba(26,25,21,.75));overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.rig::before{content:"";position:absolute;inset:0;background:linear-gradient(var(--rule) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/24px 24px;opacity:.35}
+.rig svg{position:relative;width:100%;height:100%;display:block}
+.rig .hdr{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.rig .ftr{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:12px;font:500 10.5px var(--mono);letter-spacing:.08em;color:var(--muted)}
+.rig .ftr b{color:var(--accent);font-weight:500}
+.stroke{stroke:var(--rule-2)}
+.carriage{animation:xaxis 9s var(--ease) infinite}
+.zhead{animation:zaxis 9s var(--ease) infinite}
+.drip{animation:drip 9s linear infinite;opacity:0}
+.readout{font:500 10px var(--mono);fill:var(--muted)}
+@keyframes xaxis{
+  0%,8%{transform:translateX(0)}
+  20%,33%{transform:translateX(96px)}
+  45%,58%{transform:translateX(192px)}
+  70%,83%{transform:translateX(48px)}
+  95%,100%{transform:translateX(0)}
+}
+@keyframes zaxis{
+  0%,20%{transform:translateY(0)}24%,29%{transform:translateY(52px)}33%,45%{transform:translateY(0)}
+  49%,54%{transform:translateY(52px)}58%,70%{transform:translateY(0)}74%,79%{transform:translateY(52px)}83%,100%{transform:translateY(0)}
+}
+@keyframes drip{
+  0%,25%{opacity:0}26%{opacity:1}29%{opacity:0}
+  50%{opacity:0}51%{opacity:1}54%{opacity:0}
+  75%{opacity:0}76%{opacity:1}79%,100%{opacity:0}
+}
+
+/* figures strip */
+.figures{margin-top:72px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2)}
+.fig{padding:22px 20px 22px 0;position:relative}
+.fig+.fig{padding-left:20px;border-left:1px solid var(--rule)}
+.fig b{display:block;font-size:clamp(34px,3.6vw,48px);font-weight:650;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.fig b .u{color:var(--accent)}
+.fig span{display:block;margin-top:10px;font-size:13.5px;line-height:1.45;color:var(--muted);max-width:24ch}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr}.rig{max-width:520px;width:100%;aspect-ratio:1.25/1}.figures{grid-template-columns:repeat(3,1fr)}.fig:nth-child(4){border-left:0;padding-left:0}.fig:nth-child(n+4){border-top:1px solid var(--rule)}}
+@media (max-width:560px){.figures{grid-template-columns:1fr 1fr}.fig:nth-child(n){border-left:0;padding-left:0;border-top:1px solid var(--rule)}.fig:nth-child(even){padding-left:16px;border-left:1px solid var(--rule)}.fig:first-child,.fig:nth-child(2){border-top:0}.hero{padding-top:120px}.wrap{padding:0 20px}}
+
+/* ---------- sections ---------- */
+section{padding:120px 0 40px}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:end;margin-bottom:56px}
+.sec-head .label b{color:var(--accent);font-weight:500}
+.sec-head h2{font-size:clamp(40px,5.6vw,76px);letter-spacing:-.045em;font-weight:650}
+.sec-head p{grid-column:2;max-width:58ch;color:var(--muted);margin-top:-30px}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr;gap:14px}.sec-head p{grid-column:1;margin-top:0}}
+
+/* ---------- work cases ---------- */
+.cases{border-top:1px solid var(--rule-2)}
+.case{position:relative;display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1.25fr);gap:32px;padding:48px 0;border-bottom:1px solid var(--rule-2)}
+.case::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.case:hover::before,.case.in::before{transform:scaleX(1)}
+.case.in::before{transition-delay:.15s}
+.case .no{font:500 13px var(--mono);color:var(--faint);display:flex;flex-direction:column;gap:14px}
+.case .no b{font:700 64px/1 var(--display);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px var(--rule-2);transition:-webkit-text-stroke-color .3s,color .3s}
+.case:hover .no b{-webkit-text-stroke-color:var(--accent)}
+.case h3{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.03em;font-weight:600;line-height:1.08}
+.case .head{display:grid;gap:18px;align-content:start}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 11.5px/1 var(--mono);padding:6px 9px;border-radius:999px;border:1px solid var(--rule-2);color:var(--muted)}
+.chip.ongoing{border-color:rgba(232,116,59,.35);color:var(--accent);background:var(--accent-soft)}
+.chip.ongoing::before,.chip.done::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:7px;vertical-align:1px}
+.chip.done{border-color:rgba(156,197,154,.3);color:var(--ok);background:var(--ok-soft)}
+.case dl{margin:6px 0 0;display:grid;gap:14px;padding-top:18px;border-top:1px dashed var(--rule-2)}
+.case dt{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.case dd{margin:4px 0 0;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.case .body{display:grid;gap:16px;align-content:start;color:#d6d0c6}
+.case .body p{max-width:62ch}
+.why{margin-top:6px;padding:16px 18px;border-radius:12px;background:var(--panel);border:1px solid var(--rule);color:var(--ink);font-size:16px}
+.why span{display:block;font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+@media (max-width:1000px){.case{grid-template-columns:1fr 1fr}.case .no{grid-column:1/-1;flex-direction:row;align-items:baseline}.case .no b{font-size:44px}}
+@media (max-width:700px){.case{grid-template-columns:1fr;gap:22px;padding:36px 0}}
+
+/* ---------- impact bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.tile{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:transform .35s var(--ease),border-color .3s}
+.tile:hover{transform:translateY(-4px);border-color:var(--rule-2)}
+.tile h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
+.tile p{color:var(--muted);font-size:15.5px}
+.tile .big{font-size:clamp(72px,9vw,128px);font-weight:700;letter-spacing:-.06em;line-height:.85;color:var(--ink)}
+.tile .big .u{color:var(--accent)}
+.t-a{grid-column:span 3;grid-row:span 2;justify-content:space-between;background:linear-gradient(155deg,#2a211a,var(--panel) 55%)}
+.t-a::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:1px dashed rgba(232,116,59,.35);animation:spin 40s linear infinite}
+.t-a::before{content:"";position:absolute;right:-20px;top:-20px;width:160px;height:160px;border-radius:50%;border:1px solid rgba(232,116,59,.25)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.t-b,.t-c{grid-column:span 3}
+.t-d,.t-e,.t-f{grid-column:span 2}
+.t-e .big{font-size:64px}
+@media (max-width:900px){.t-a,.t-b,.t-c{grid-column:span 6;grid-row:auto}.t-d,.t-e,.t-f{grid-column:span 3}.t-f{grid-column:span 6}}
+@media (max-width:560px){.bento>*{grid-column:span 6!important}}
+
+/* ---------- career timeline ---------- */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before,.timeline::after{content:"";position:absolute;left:200px;top:8px;bottom:8px;width:1px;background:var(--rule-2)}
+.timeline::after{background:var(--accent);transform-origin:top;transform:scaleY(var(--p,0))}
+.timeline li{display:grid;grid-template-columns:200px 1fr;gap:0;padding:0 0 44px}
+.timeline .when{font:500 13px var(--mono);color:var(--muted);padding-top:4px;padding-right:24px;font-variant-numeric:tabular-nums}
+.timeline .card{position:relative;padding-left:40px;max-width:760px}
+.timeline .card::before{content:"";position:absolute;left:-6px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--rule-2);transition:border-color .4s,background .4s}
+.timeline li.in .card::before{border-color:var(--accent);background:var(--accent)}
+.timeline li:first-child .card::before{box-shadow:0 0 0 6px var(--accent-soft)}
+.timeline h3{font-size:clamp(22px,2.2vw,28px);letter-spacing:-.025em;line-height:1.15}
+.timeline .org{margin-top:6px;font:500 13px var(--mono);color:var(--accent)}
+.timeline p{margin-top:12px;color:var(--muted);max-width:62ch}
+@media (max-width:700px){
+  .timeline::before,.timeline::after{left:5px}
+  .timeline li{grid-template-columns:1fr;padding-left:30px}
+  .timeline .card{padding-left:0}
+  .timeline .card::before{left:-31px;top:-22px}
+  .timeline .when{padding-bottom:8px}
+}
+
+/* ---------- education ---------- */
+.edu{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}
+.degree{position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:20px;padding:34px;display:flex;flex-direction:column;gap:18px;overflow:hidden}
+.degree .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.degree h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;line-height:1.02}
+.degree .school{font-size:15.5px;color:var(--muted)}
+.honour{display:inline-flex;align-items:center;gap:8px;font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:6px 10px;border-radius:999px}
+.honour svg{width:13px;height:13px}
+.degree p{color:#d6d0c6}
+.feature{border-top:1px dashed var(--rule-2);padding-top:18px;display:grid;gap:8px}
+.feature .label{color:var(--accent)}
+.feature h4{margin:0;font-size:21px;font-weight:550;letter-spacing:-.02em;line-height:1.2}
+.feature h4 em.s{font-size:1.15em}
+.feature p{color:var(--muted);font-size:15.5px}
+.erasmus{margin-top:auto;position:relative;padding:22px;border-radius:14px;background:linear-gradient(135deg,rgba(232,116,59,.18),rgba(232,116,59,.04));border:1px solid rgba(232,116,59,.3)}
+.erasmus .label{color:var(--accent)}
+.erasmus p{margin-top:8px;color:var(--ink);font-size:16.5px}
+.erasmus strong{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.25em;color:var(--accent)}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:900px){.edu{grid-template-columns:1fr}}
+@media (max-width:620px){.feature-row{grid-template-columns:1fr}.degree{padding:26px}}
+
+.skills{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skill{background:transparent;border:1px solid var(--rule);border-radius:18px;padding:24px}
+.skill h3{font-size:17px;letter-spacing:-.01em;margin-bottom:16px;font-weight:600}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{font:400 12.5px/1.3 var(--mono);padding:7px 10px;border-radius:8px;background:var(--panel);border:1px solid var(--rule);color:#d6d0c6;transition:border-color .2s,color .2s}
+.tags li:hover{border-color:var(--accent);color:var(--ink)}
+@media (max-width:1000px){.skills{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.skills{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{padding:140px 0 60px}
+.contact-box{position:relative;border:1px solid var(--rule-2);border-radius:28px;padding:clamp(32px,6vw,80px);overflow:hidden;background:
+  radial-gradient(600px 300px at 100% 0,rgba(232,116,59,.16),transparent 70%),var(--bg-2)}
+.contact h2{font-size:clamp(44px,7.4vw,108px);letter-spacing:-.055em;line-height:.92;font-weight:650;max-width:12ch}
+.contact h2 em.s{color:var(--accent)}
+.email-row{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.email{font-size:clamp(20px,3vw,36px);font-weight:500;letter-spacing:-.02em;text-decoration:none;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 2px no-repeat;padding-bottom:4px;transition:background-size .4s var(--ease);word-break:break-all}
+.email:hover{background-size:100% 2px}
+.copy[data-state="ok"]{border-color:var(--ok);color:var(--ok)}
+.copy[data-state="err"]{border-color:var(--accent);color:var(--accent)}
+.contact .meta{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--muted);font:500 13px var(--mono)}
+.contact .meta span{display:inline-flex;align-items:center;gap:8px}
+.contact .meta svg{width:14px;height:14px}
+.sr-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{padding:28px 0 48px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 12px var(--mono);color:var(--faint)}
+footer a{text-decoration:none;color:var(--muted)}
+footer a:hover{color:var(--accent)}
+
+
+/* ---------- added motion: plotted drawing, live readouts, Z-rail, spotlight ---------- */
+.js .rig .plot{stroke-dasharray:1;stroke-dashoffset:1;animation:plot 1.6s var(--ease) forwards;animation-delay:var(--pd,.7s)}
+@keyframes plot{to{stroke-dashoffset:0}}
+.js .rig .wellsfill{opacity:0;animation:boot .8s var(--ease) forwards;animation-delay:1.9s}
+.live{font:500 10px var(--mono);fill:var(--muted);font-variant-numeric:tabular-nums}
+.live.hot{fill:var(--accent)}
+.ilk i{font-style:normal}
+.ilk.check b,.ilk.check i{color:#e8b43b}
+.ilk.check b{animation:blink .4s steps(2) infinite}
+.ilk.ok b,.ilk.ok i{color:var(--ok)}
+@keyframes blink{50%{opacity:0}}
+
+.zrail{position:fixed;right:22px;top:110px;bottom:70px;width:30px;z-index:40;pointer-events:none;display:none}
+@media (min-width:1360px){.zrail{display:block}}
+.zrail .track,.zrail .fill{position:absolute;left:14px;top:0;width:2px;border-radius:2px}
+.zrail .track{bottom:0;background:var(--rule-2)}
+.zrail .fill{height:calc(var(--zp,0) * 100%);background:var(--accent)}
+.zrail .tip{position:absolute;left:8px;top:calc(var(--zp,0) * 100%);width:14px;height:22px;transform:translateY(-100%)}
+.zrail .tip::before{content:"";position:absolute;left:0;top:0;width:14px;height:12px;border-radius:2px;background:var(--accent)}
+.zrail .tip::after{content:"";position:absolute;left:4px;top:12px;width:6px;height:10px;background:var(--ink);clip-path:polygon(0 0,100% 0,65% 100%,35% 100%);opacity:.85}
+.zrail .tick{position:absolute;left:0;width:30px;transform:translateY(-50%);font:500 9.5px var(--mono);letter-spacing:.06em;color:var(--faint);text-align:right;padding-right:22px;transition:color .3s}
+.zrail .tick::after{content:"";position:absolute;right:-4px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;border:1.5px solid var(--rule-2);background:var(--bg);transition:background .3s,border-color .3s}
+.zrail .tick{left:auto;right:16px;padding-right:10px;width:auto}
+.zrail .tick::after{right:-6px}
+.zrail .tick.on{color:var(--ink)}
+.zrail .tick.on::after{background:var(--accent);border-color:var(--accent)}
+.zrail .zlabel{position:absolute;top:-22px;left:6px;font:500 9.5px var(--mono);color:var(--faint);letter-spacing:.1em}
+
+.glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(232,116,59,.10),transparent 65%)}
+.tile:hover .glow,.degree:hover .glow,.skill:hover .glow{opacity:1}
+.skill{position:relative;overflow:hidden}
+
+/* ---------- motion ---------- */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+.js .hero h1 .line span{transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+.js .hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.js .hero .boot{opacity:0;transform:translateY(16px);animation:boot .9s var(--ease) forwards;animation-delay:var(--d,.3s)}
+@keyframes rise{to{transform:none}}
+@keyframes boot{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal,.js .hero .boot,.js .hero h1 .line span{opacity:1;transform:none}
+  .js .rig .plot{stroke-dashoffset:0}.js .rig .wellsfill{opacity:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="bar">
+    <a class="mark" href="#top" aria-label="Sobin Sunny, back to top"><i aria-hidden="true">SS</i>Sobin Sunny</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="btn sm primary" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="status boot" style="--d:.1s"><span class="dot" aria-hidden="true"></span>Robotics R&amp;D, London</span>
+        <h1 aria-label="Sobin Sunny, MIET">
+          <span class="line" aria-hidden="true"><span>Sobin</span></span>
+          <span class="line" aria-hidden="true"><span>Sunny<sup>MIET</sup></span></span>
+        </h1>
+        <p class="role boot" style="--d:.35s">Mechatronics and robotics engineer who builds <em class="s">laboratory robots</em> people can trust.</p>
+        <p class="lede boot" style="--d:.45s">I design, test and certify laboratory robots used in public health, biopharma and research labs. My work spans embedded hardware, robot software and machine safety. I also connect our instruments to open source lab automation software, so scientists can control them with free tools.</p>
+        <div class="cta boot" style="--d:.55s">
+          <a class="btn primary" href="#work">See my work <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn" href="https://www.linkedin.com/in/sobin-sunny/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.67 0-1.92 1.3-1.92 2.64V21h-4z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Animated drawing of a liquid-handling gantry: X carriage travels, Z head dips into wells. -->
+      <figure class="rig boot" style="--d:.5s;margin:0" aria-label="Animated drawing of a liquid handling robot moving across a well plate">
+        <div class="hdr"><span>DWG · LH-GANTRY</span><span>Sheet 1 of 1</span></div>
+        <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
+          <defs>
+            <pattern id="wells" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="8" cy="8" r="5" stroke="#3d3931" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <!-- frame -->
+          <rect x="40" y="60" width="320" height="270" rx="6" class="stroke plot" stroke-width="1.2" pathLength="1"/>
+          <line x1="40" y1="96" x2="360" y2="96" class="stroke plot" stroke-width="1" pathLength="1" style="--pd:1s"/>
+          <!-- dimension line -->
+          <g stroke="#6d685f" stroke-width=".8">
+            <line x1="40" y1="350" x2="360" y2="350"/><line x1="40" y1="344" x2="40" y2="356"/><line x1="360" y1="344" x2="360" y2="356"/>
+            <line x1="24" y1="96" x2="24" y2="330"/><line x1="18" y1="96" x2="30" y2="96"/><line x1="18" y1="330" x2="30" y2="330"/>
+          </g>
+          <text x="200" y="345" text-anchor="middle" class="readout">X 320</text>
+          <text x="20" y="215" text-anchor="middle" class="readout" transform="rotate(-90 20 215)">Z 234</text>
+          <text x="40" y="50" class="live" id="ro-x">X 064.0</text>
+          <text x="110" y="50" class="live" id="ro-z">Z 00.0</text>
+          <text x="360" y="50" text-anchor="end" class="live" id="ro-s">HOMING</text>
+          <!-- deck + plate -->
+          <rect x="88" y="236" width="224" height="80" rx="4" fill="#1a1915" stroke="#3d3931" class="plot" pathLength="1" style="--pd:1.2s"/>
+          <g class="wellsfill"><rect x="96" y="244" width="208" height="64" fill="url(#wells)"/>
+          <rect x="96" y="244" width="16" height="16" fill="rgba(232,116,59,.18)"/>
+          <rect x="192" y="276" width="16" height="16" fill="rgba(232,116,59,.18)"/>
+          <rect x="288" y="260" width="16" height="16" fill="rgba(156,197,154,.16)"/></g>
+          <!-- X rail -->
+          <rect x="52" y="104" width="296" height="10" rx="2" fill="#25231e" stroke="#3d3931"/>
+          <g stroke="#3d3931">
+            <line x1="70" y1="109" x2="330" y2="109" stroke-dasharray="2 6"/>
+          </g>
+          <!-- carriage: start centred over well at x=104 -->
+          <g class="carriage">
+            <rect x="84" y="98" width="40" height="22" rx="3" fill="#2f2c26" stroke="#6d685f"/>
+            <circle cx="94" cy="109" r="2.4" fill="#6d685f"/><circle cx="114" cy="109" r="2.4" fill="#6d685f"/>
+            <g class="zhead">
+              <rect x="96" y="120" width="16" height="74" rx="2" fill="#25231e" stroke="#6d685f"/>
+              <line x1="104" y1="128" x2="104" y2="186" stroke="#3d3931" stroke-dasharray="3 3"/>
+              <rect x="98" y="194" width="12" height="10" rx="1.5" fill="#e8743b"/>
+              <path d="M101 204h6l-2 18h-2z" fill="#eee9e1" opacity=".85"/>
+              <circle class="drip" cx="104" cy="228" r="2" fill="#e8743b"/>
+            </g>
+            <line x1="104" y1="70" x2="104" y2="96" stroke="#e8743b" stroke-width=".8" stroke-dasharray="2 3"/>
+            <text x="104" y="84" text-anchor="middle" class="readout" style="fill:#e8743b">HEAD</text>
+          </g>
+          <!-- callouts -->
+          <g stroke="#6d685f" stroke-width=".8">
+            <path d="M330 236 L356 206 H378" class="plot" pathLength="1" style="--pd:1.6s"/>
+          </g>
+          <text x="374" y="200" text-anchor="end" class="readout">96-WELL</text>
+        </svg>
+        <div class="ftr"><span>LUT stepper profile · X / Y / Z</span><span class="ilk ok" id="ilk"><b>●</b> Interlock <i>OK</i></span></div>
+      </figure>
+    </div>
+
+    <div class="figures" aria-label="Key figures">
+      <div class="fig reveal"><b><span data-count="600">600</span><span class="u">+</span></b><span>people trained in embedded systems and robotics</span></div>
+      <div class="fig reveal" style="--d:.06s"><b><span data-count="25">25</span><span class="u">+</span></b><span>robotics and embedded clients, including IITs and NITs</span></div>
+      <div class="fig reveal" style="--d:.12s"><b><span data-count="251">251</span></b><span>plant assets ranked by criticality to scope a monitoring programme</span></div>
+      <div class="fig reveal" style="--d:.18s"><b><span data-count="32">32</span></b><span>mechanical safety tests planned and directed on a lab robot</span></div>
+      <div class="fig reveal" style="--d:.24s"><b><span data-count="2">2</span></b><span>customer lab commissionings, including UKHSA Colindale</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="zrail" aria-hidden="true">
+  <span class="zlabel">Z</span>
+  <div class="track"></div><div class="fill"></div>
+  <div class="ticks"></div>
+  <div class="tip"></div>
+</div>
+
+<main id="main">
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>01</b> / Selected work</span>
+      <h2>Work that <em class="s">ships</em> to real labs</h2>
+      <p>Six projects from the last three years. Each one shows the problem, what I did and what changed as a result.</p>
+    </div>
+
+    <div class="cases">
+
+      <article class="case reveal">
+        <div class="no"><b>01</b><span>2025 to present</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip done">Complete</span><span class="chip ongoing">SDK ongoing</span><span class="chip">Open source</span></div>
+          <h3>Bringing lab instruments onto PyLabRobot</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Proposed the approach to the R&amp;D Director, then built it</dd></div>
+            <div><dt>Tools</dt><dd>Python, PyLabRobot, serial protocol capture, legacy instrument runtime</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>PyLabRobot is a free, open source Python framework for lab automation. It lets scientists control robots from different makers with the same code. Most lab robots only run on their maker's own software, which locks labs in and makes methods hard to share.</p>
+          <p>I made an automated liquid dispenser fully compatible with PyLabRobot. The dispenser was a legacy serial device with only an old manual. I captured its live serial traffic and found the timing problems that were causing lost commands. It now runs from Python as a tested driver.</p>
+          <p>I am now leading a Python SDK for our liquid handling robots. I designed it to sit on top of the existing control software through a defined interface. That way, proven code already serving customers does not need to change.</p>
+          <p class="why"><span>Why it matters</span>Labs using open tools can add these instruments without buying into a closed system, and methods become easier to repeat and share.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>02</b><span>May 2026 to present</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip ongoing">Certification in progress</span><span class="chip">Machine safety</span></div>
+          <h3>Safety testing and certification of a liquid handling Cartesian robot</h3>
+          <dl>
+            <div><dt>Standards</dt><dd>EN ISO 12100, Machinery Directive, CE marking</dd></div>
+            <div><dt>Outputs</dt><dd>Test plan, test records, NCRs, component compliance tracker</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>I own the preparation of a liquid handling Cartesian robot for third party safety certification with Eurofins. I wrote the mechanical safety test plan of 32 tests and directed the testing.</p>
+          <p>During testing I found that any magnet could defeat the guard interlock. That was a critical safety risk. I restricted use of the machine and raised a non-conformance. I instructed the design engineer to redesign it with a SICK reed switch. I closed the NCR only after a verified re-test.</p>
+          <p>I also gather compliance certificates from manufacturers and suppliers for every critical component, and track them against the certification evidence.</p>
+          <p class="why"><span>Why it matters</span>The robot is used by lab staff every day, and a guard that anyone can bypass puts them at risk.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>03</b><span>Feb to May 2026</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip done">Commissioned 22 Apr 2026</span><span class="chip">Biopharma</span></div>
+          <h3>Replacing a decades old MS-DOS system at a biopharma lab</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Requirements, protocols, testing, on-site commissioning, training</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>A biopharma lab in London was still running its gel punching process on an MS-DOS system. I worked with the customer to define their requirements and wrote the protocols for the new automated system.</p>
+          <p>I tested parallel and series vacuum set-ups to find which gave the better performance. I then commissioned the system at the customer's lab and trained their staff to use it.</p>
+          <p class="why"><span>Result</span>A faster Windows based system with run logging, on supported hardware the lab can maintain.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>04</b><span>Jun 2023 to Jan 2025</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip done">In daily use</span><span class="chip">Manufacturing</span></div>
+          <h3>Condition monitoring programme for a manufacturing plant</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Programme lead and budget holder</dd></div>
+            <div><dt>Tools</dt><dd>AVEVA Insight, Schneider TM262 with TM3, Modbus, MQTT, Power BI</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>I led an anomaly based condition monitoring programme across five production areas of a working plant, and held its budget. I set the scope using an FMECA of 251 plant assets, ranked across five criticality levels.</p>
+          <p>I specified Schneider TM262 PLCs and sensor networks, brought plant data in over Modbus and MQTT, and built a data historian with Power BI reporting. I worked under permit-to-work in ATEX zones and wrote the risk assessments and method statements for installation.</p>
+          <p>The system gave early warning of a bearing problem on the thermal oil system that the existing SCADA did not show. I took the programme from pilot stage to day-to-day use by process, production and maintenance engineers. I also saved over £2,000 by learning AVEVA Insight through free resources instead of paid training.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>05</b><span>Lab automation</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip">Hardware</span><span class="chip">Diagnostics</span></div>
+          <h3>Hardware design and fault finding on lab robots</h3>
+          <dl>
+            <div><dt>Parts and methods</dt><dd>Allegro A9102, RC filter design, LUT stepper control, protocol and log analysis</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>I designed a cover sensor circuit around an Allegro A9102 linear Hall effect sensor. I removed parts of the original schematic that were distorting the analog signal and added an RC low-pass filter to cut ADC noise.</p>
+          <p>I worked out stepper motor motion profiles for the X, Y and Z axes from the controller's speed lookup table. When a robot showed intermittent faults, I decoded its runtime logs and traced the cause to a wireless link with an accessory module.</p>
+          <p>I also led an investigation into barcode read failures. I found the cause was label print quality, and had the thermal print settings changed in production.</p>
+        </div>
+      </article>
+
+      <article class="case reveal">
+        <div class="no"><b>06</b><span>2025 to present</span></div>
+        <div class="head">
+          <div class="chips"><span class="chip done">In use by customers</span><span class="chip">Documentation</span></div>
+          <h3>Service manual, customer applications and training</h3>
+          <dl>
+            <div><dt>Customers</dt><dd>UKHSA, an OEM research partner, biopharma</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>I wrote a liquid handling robot service manual from scratch, so customers and engineers can fix common faults themselves. I commissioned a lab automation system at UKHSA Colindale and trained the customer's staff.</p>
+          <p>Since October 2025 I have built and supported an automated column purification application for an OEM partner, used by their research customers. In 2026 I adapted it into a second application for flushing the columns.</p>
+          <p>I learned a proprietary robot programming language within two months and used it for these commercial applications.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>02</b> / Impact</span>
+      <h2>Beyond the <em class="s">day job</em></h2>
+    </div>
+    <div class="bento">
+      <div class="tile t-a reveal">
+        <span class="label">Teaching</span>
+        <div>
+          <div class="big"><span data-count="600">600</span><span class="u">+</span></div>
+          <h3 style="margin-top:18px">people trained</h3>
+          <p style="margin-top:10px;max-width:46ch">I delivered technical training in embedded systems, robotics and automation to over 600 candidates. I also built robotics and automation systems for university and industry labs.</p>
+        </div>
+      </div>
+      <div class="tile t-b reveal" style="--d:.06s">
+        <span class="label">Universities</span>
+        <h3>Trusted by India's premier national institutes</h3>
+        <p>I delivered robotics, autonomous vehicle and embedded systems projects for more than 25 clients, including <strong>IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum</strong>, some of the country's most prestigious public universities.</p>
+      </div>
+      <div class="tile t-c reveal" style="--d:.12s">
+        <span class="label">Consulting</span>
+        <h3>Subject matter expert and consultant</h3>
+        <p>Companies engage me as a subject matter expert and consultant in mechatronics, robotics and automation. I advise on system architecture, machine safety, sensing and control, condition monitoring and automating manual processes. One research firm engaged me to advise on automated dust extraction for processes involving wood dust.</p>
+      </div>
+      <div class="tile t-d reveal">
+        <span class="label">Open source</span>
+        <h3>Open tools for scientists</h3>
+        <p>My PyLabRobot work helps labs use commercial instruments with free, shared software instead of closed vendor tools.</p>
+      </div>
+      <div class="tile t-e reveal" style="--d:.06s">
+        <span class="label">Community</span>
+        <div class="big"><span data-count="162">162</span></div>
+        <h3>meals rescued from waste</h3>
+        <p>I have volunteered with Olio since 2021, collecting surplus food from local stores and sharing it with neighbours. I persuaded partner stores to restart donations after a pause. I also volunteered with FareShare in 2021 and 2022.</p>
+      </div>
+      <div class="tile t-f reveal" style="--d:.12s">
+        <span class="label">Team</span>
+        <h3>Monthly technical knowledge-sharing session</h3>
+        <p>With my director's approval, I am setting up a monthly session where colleagues share lessons from faults, safety findings and new tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>03</b> / Career</span>
+      <h2>From freelance builds to <em class="s">certified</em> machines</h2>
+    </div>
+    <ol class="timeline" id="timeline">
+      <li class="reveal">
+        <span class="when">Feb 2025 to now</span>
+        <div class="card">
+          <h3>Mechatronics and Robotics Engineer, R&amp;D</h3>
+          <p class="org">Lab automation, London</p>
+          <p>Lab automation for clinical, pharma and research customers. I lead verification and validation testing, machine safety and CE marking work, service documentation and the Python SDK.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="when">Jun 2023 to Jan 2025</span>
+        <div class="card">
+          <h3>Automation Development Engineer</h3>
+          <p class="org">Manufacturing, Scotland</p>
+          <p>Led the plant condition monitoring programme from pilot to day-to-day use, including budget, contractors and stakeholders.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="when">Aug 2022 to May 2023</span>
+        <div class="card">
+          <h3>Technical Consultant</h3>
+          <p class="org">Astoria</p>
+          <p>Introduced CRM, automation and data reporting tools for a 130 person organisation, alongside my MSc.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="when">May 2019 to Dec 2020</span>
+        <div class="card">
+          <h3>Engineering Consultant</h3>
+          <p class="org">India</p>
+          <p>Designed robotics and automation systems for university and industry labs, often running 12 or more projects at once. Trained over 600 candidates.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <span class="when">Alongside my BEng</span>
+        <div class="card">
+          <h3>Robotics and Embedded Systems Consultant</h3>
+          <p class="org">Freelance, India</p>
+          <p>Delivered projects for 25+ clients, including IIT Madras, IIT Kharagpur, IIT Tirupati, IIT Puducherry, NIT Tiruchirappalli, NIT Calicut and IIST Trivandrum.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label"><b>04</b> / Education</span>
+      <h2>Education and <em class="s">recognition</em></h2>
+    </div>
+
+    <div class="edu">
+      <article class="degree reveal">
+        <div class="top">
+          <span class="label">2021 to 2022</span>
+          <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>Distinction</span>
+        </div>
+        <h3>MSc Mechatronics and Intelligent Machines</h3>
+        <p class="school">University of Central Lancashire, UK</p>
+        <p>My dissertation was on autonomous vehicles.</p>
+        <div class="erasmus">
+          <span class="label">Erasmus+ · 2022</span>
+          <p>I was awarded <strong>prestigious</strong> Erasmus+ funding for my project proposal on remote condition monitoring of offshore wind turbines.</p>
+        </div>
+      </article>
+
+      <article class="degree reveal" style="--d:.08s">
+        <div class="top">
+          <span class="label">2015 to 2019</span>
+          <span class="honour"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>Distinction</span>
+        </div>
+        <h3>BEng Mechatronics Engineering</h3>
+        <p class="school">Hindusthan College of Engineering and Technology, Anna University</p>
+        <div class="feature-row">
+          <div class="feature">
+            <span class="label">Final year project · Top grade</span>
+            <h4><em class="s">A reconfigurable autonomous mobile robot platform</em></h4>
+            <p>I built a mobile robot that navigates on its own and can be reconfigured for different tasks, rather than built for just one. The project received the top grade.</p>
+          </div>
+          <div class="feature">
+            <span class="label">Solar vehicle championship</span>
+            <h4>Winning business plan, against 130 teams</h4>
+            <p>I helped design and build a solar car that competed at Asia's largest solar vehicle championship, and I presented our team's business plan, which won.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="skills">
+      <div class="skill reveal">
+        <h3>Professional</h3>
+        <ul class="tags">
+          <li>MIET, working towards CEng</li>
+          <li>ISO 13485:2016</li>
+          <li>ISO 9001:2015</li>
+          <li>Six Sigma Diploma</li>
+          <li>Biomedical Engineering, TU Delft, 2024</li>
+        </ul>
+      </div>
+      <div class="skill reveal" style="--d:.06s">
+        <h3>Software and controls</h3>
+        <ul class="tags">
+          <li>Python</li><li>PyLabRobot</li><li>Robot protocol development</li><li>Schneider PLCs</li><li>Modbus</li><li>MQTT</li>
+        </ul>
+      </div>
+      <div class="skill reveal" style="--d:.12s">
+        <h3>Data</h3>
+        <ul class="tags">
+          <li>AVEVA Insight</li><li>Power BI</li><li>Data historians</li><li>Log and protocol analysis</li>
+        </ul>
+      </div>
+      <div class="skill reveal" style="--d:.18s">
+        <h3>Hardware and safety</h3>
+        <ul class="tags">
+          <li>Sensor circuits</li><li>Filtering</li><li>Stepper motion control</li><li>EN ISO 12100</li><li>Safety testing</li><li>Permit-to-work</li><li>ATEX zones</li><li>RAMS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <span class="label">05 / Contact</span>
+      <h2 style="margin-top:22px">Let's build something <em class="s">precise.</em></h2>
+      <div class="email-row">
+        <a class="email" href="mailto:sobinsunny111@gmail.com">sobinsunny111@gmail.com</a>
+        <button class="btn sm copy" type="button" data-copy="sobinsunny111@gmail.com" data-state="idle">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+          <span>Copy email</span>
+        </button>
+        <a class="btn sm" href="https://www.linkedin.com/in/sobin-sunny/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12V21h-4v-5c0-1.2-.02-2.73-1.66-2.73-1.67 0-1.92 1.3-1.92 2.64V21h-4z"/></svg>
+          LinkedIn
+        </a>
+        <span class="sr-live" aria-live="polite" id="copy-status"></span>
+      </div>
+      <div class="meta">
+        <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 14s5-4.2 5-8A5 5 0 0 0 3 6c0 3.8 5 8 5 8z"/><circle cx="8" cy="6" r="1.8"/></svg>Based in London, UK</span>
+        <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></svg>Usually replies within a few days</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Sobin Sunny MIET</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Nav shadow on scroll
+  const nav = document.querySelector('.nav');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 20);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Count-up numbers
+  const countUp = el => {
+    const end = +el.dataset.count;
+    if (reduce || end < 3) { el.textContent = end; return; }
+    const t0 = performance.now(), dur = 1400;
+    const tick = t => {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(end * e);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    el.textContent = 0; requestAnimationFrame(tick);
+  };
+
+  // Scroll reveals
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Active nav link
+  const links = [...document.querySelectorAll('.nav ul a')];
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  ['work','impact','career','education','contact'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+
+  // Timeline progress line
+  const tl = document.getElementById('timeline');
+  const progress = () => {
+    const r = tl.getBoundingClientRect(), vh = innerHeight;
+    const p = Math.max(0, Math.min(1, (vh * .6 - r.top) / r.height));
+    tl.style.setProperty('--p', p.toFixed(3));
+  };
+  addEventListener('scroll', progress, {passive:true}); progress();
+
+
+  // Interlock self-check, then live X/Z readouts synced to the gantry animation
+  const ilk = document.getElementById('ilk');
+  if (ilk && !reduce) {
+    ilk.className = 'ilk check'; ilk.querySelector('i').textContent = 'CHECK';
+    setTimeout(() => { ilk.className = 'ilk ok'; ilk.querySelector('i').textContent = 'OK'; }, 2200);
+  }
+  const car = document.querySelector('.carriage'), zh = document.querySelector('.zhead');
+  const rx = document.getElementById('ro-x'), rz = document.getElementById('ro-z'), rs = document.getElementById('ro-s');
+  if (car && rx && !reduce) {
+    const tr = el => { const m = getComputedStyle(el).transform; if (!m || m === 'none') return [0,0]; const v = m.match(/-?[\d.]+/g).map(Number); return [v[4]||0, v[5]||0]; };
+    let lastX = null;
+    const loop = () => {
+      const [tx] = tr(car), [, tz] = tr(zh);
+      const x = 64 + tx, z = tz;
+      rx.textContent = 'X ' + x.toFixed(1).padStart(5,'0');
+      rz.textContent = 'Z ' + z.toFixed(1).padStart(4,'0');
+      const moving = lastX !== null && Math.abs(x - lastX) > .05;
+      const state = z > 44 ? 'DISPENSE' : moving ? 'TRAVEL' : z > 2 ? 'Z MOVE' : 'IDLE';
+      rs.textContent = state; rs.classList.toggle('hot', state === 'DISPENSE'); rz.classList.toggle('hot', z > 44);
+      lastX = x; requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  } else if (rs) { rs.textContent = 'IDLE'; }
+
+  // Z-axis scroll rail: the pipette head travels down as you read, wells light per section
+  const rail = document.querySelector('.zrail');
+  if (rail) {
+    const ticksBox = rail.querySelector('.ticks');
+    const secs = [['work','01'],['impact','02'],['career','03'],['education','04'],['contact','05']]
+      .map(([id,n]) => { const el = document.getElementById(id); if (!el) return null; const t = document.createElement('span'); t.className = 'tick'; t.textContent = n; ticksBox.appendChild(t); return {el, t}; })
+      .filter(Boolean);
+    let max = 1;
+    const layout = () => {
+      max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      secs.forEach(s => { s.f = Math.min(1, Math.max(0, (s.el.offsetTop - innerHeight * .4) / max)); s.t.style.top = (s.f * 100) + '%'; });
+    };
+    const update = () => {
+      const p = Math.min(1, Math.max(0, scrollY / max));
+      rail.style.setProperty('--zp', p.toFixed(4));
+      secs.forEach(s => s.t.classList.toggle('on', p >= s.f - .002));
+    };
+    layout(); update();
+    addEventListener('scroll', update, {passive:true});
+    addEventListener('resize', () => { layout(); update(); });
+    addEventListener('load', () => { layout(); update(); });
+  }
+
+  // Spotlight that follows the pointer on cards
+  if (!reduce && matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.tile,.degree,.skill').forEach(card => {
+      const g = document.createElement('span'); g.className = 'glow'; g.setAttribute('aria-hidden','true'); card.appendChild(g);
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  // Copy email with feedback
+  const btn = document.querySelector('.copy'), label = btn.querySelector('span'), live = document.getElementById('copy-status');
+  let timer;
+  btn.addEventListener('click', async () => {
+    clearTimeout(timer);
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      btn.dataset.state = 'ok'; label.textContent = 'Copied'; live.textContent = 'Email address copied';
+    } catch {
+      btn.dataset.state = 'err'; label.textContent = 'Copy failed, select the address'; live.textContent = 'Copy failed';
+    }
+    timer = setTimeout(() => { btn.dataset.state = 'idle'; label.textContent = 'Copy email'; }, 2400);
+  });
+})();
+</script>
+</body>
+</html>
